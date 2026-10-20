@@ -1,0 +1,116 @@
+/* ============================================================================
+ * GAYA REKA BENTUK UTAMA — DASHBOARD PBS PJ3 (SK TAMAN PERMAS JAYA 3)
+ * Token Reka Bentuk:
+ * - Navy: #081C52
+ * - Biru Diraja: #174EA6
+ * - Emas: #FFC43D
+ * - Putih: #FFFFFF
+ * - Latar Lembut: #F4F7FF
+ * - Teks Utama: #112455
+ * - Teks Sekunder: #5A688C
+ * ============================================================================ */
+
+:root {
+  --pbs-navy: #081C52;
+  --pbs-blue: #174EA6;
+  --pbs-gold: #FFC43D;
+  --pbs-white: #FFFFFF;
+  --pbs-bg-soft: #F4F7FF;
+  --pbs-text-main: #112455;
+  --pbs-text-muted: #5A688C;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--pbs-bg-soft);
+  color: var(--pbs-text-main);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Teks Emas 3D seperti gambar rujukan portal PJ3 */
+.text-gold-gradient {
+  background: linear-gradient(180deg, #FFFDF0 0%, #FFE07D 35%, #FFC43D 65%, #D99207 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.55));
+}
+
+/* Reben Emas 3D */
+.gold-ribbon {
+  background: linear-gradient(180deg, #FFE896 0%, #FFC43D 50%, #D99207 100%);
+  box-shadow: 0 4px 16px rgba(217, 146, 7, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.75);
+}
+
+/* Kad Menu Berwarna Lembut gaya MyPENTADBIRAN PJ3 */
+.pbs-card {
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s ease;
+}
+
+.pbs-card:hover {
+  transform: translateY(-4px);
+}
+
+.pbs-card:focus-visible {
+  outline: 3px solid var(--pbs-gold);
+  outline-offset: 2px;
+}
+
+/* Fokus Papan Kekunci yang Jelas (Accessibility) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--pbs-gold);
+  outline-offset: 2px;
+}
+
+/* Scrollbar Kemas */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #081C52;
+}
+::-webkit-scrollbar-thumb {
+  background: #174EA6;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 196, 61, 0.4);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FFC43D;
+}
+
+/* Sokongan Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Gaya Cetakan (Print Stylesheet) untuk Senarai Semak & Maklumat */
+@media print {
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+  .print-card {
+    box-shadow: none !important;
+    border: 1px solid #cbd5e1 !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    margin-bottom: 12px !important;
+  }
+}
