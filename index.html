@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard PBS PJ3 | Pusat Rujukan Pentaksiran Berasaskan Sekolah SK Taman Permas Jaya 3</title>
+  <meta
+    name="description"
+    content="Dashboard PBS PJ3 — Pusat Rujukan Pentaksiran Berasaskan Sekolah SK Taman Permas Jaya 3 (PJ3 BEST). Satu pusat rujukan untuk akses dokumen, instrumen, takwim dan pengurusan pentaksiran sekolah."
+  />
+
+  <!-- Favicon Logo Rasmi -->
+  <link rel="icon" type="image/png" href="public/images/logo-pj3.png" />
+
+  <!-- Google Fonts: Plus Jakarta Sans & Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;0,700;0,800;0,900;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Montserrat"', 'sans-serif'],
+          },
+          colors: {
+            pbsnavy: '#081C52',
+            pbsblue: '#174EA6',
+            pbsgold: '#FFC43D',
+            pbssoft: '#F4F7FF',
+            pbstext: '#112455',
+            pbsmuted: '#5A688C',
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Gaya Utama Portal -->
+  <link rel="stylesheet" href="src/styles/main.css" />
+
+  <!-- Lucide Icons (SVG) -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-[#F4F7FF] text-[#112455] font-sans antialiased min-h-screen flex flex-col selection:bg-[#FFC43D] selection:text-[#081C52]">
+
+  <!-- Pautan Langkau ke Kandungan Utama (Accessibility Keyboard Support) -->
+  <a
+    href="#appMainContent"
+    class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:rounded-xl focus:bg-[#FFC43D] focus:text-[#081C52] focus:font-extrabold"
+  >
+    Langkau ke kandungan utama
+  </a>
+
+  <!-- ==================== HEADER & MENU NAVIGASI UTAMA ==================== -->
+  <header class="bg-[#081C52] text-white sticky top-0 z-40 border-b-2 border-[#FFC43D]/70 shadow-lg no-print">
+    <!-- Bar Atas: Identiti Sekolah, Nama Portal & Butang Menu Mudah Alih -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16 gap-3">
+        <!-- Kiri: Ruang Logo Rasmi + Nama Sekolah & Nama Portal -->
+        <a href="#/" class="flex items-center gap-3 group min-w-0">
+          <div class="w-11 h-11 rounded-xl bg-white p-1 border-2 border-[#FFC43D] shadow-sm flex items-center justify-center shrink-0">
+            <img
+              src="public/images/logo-pj3.png"
+              alt="Logo Rasmi SK Taman Permas Jaya 3"
+              class="w-full h-full object-contain"
+              onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+            />
+            <span class="hidden text-[8px] font-black text-[#081C52] text-center leading-none">LOGO RASMI PJ3</span>
+          </div>
+          <div class="min-w-0">
+            <div class="flex items-center gap-2">
+              <span class="text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-[#FFC43D] truncate">
+                SK TAMAN PERMAS JAYA 3
+              </span>
+              <span class="hidden sm:inline-block px-2 py-0.5 rounded bg-[#174EA6] text-[#FFC43D] text-[10px] font-black uppercase">
+                PJ3 BEST
+              </span>
+            </div>
+            <span class="text-sm sm:text-base font-black text-white tracking-tight block leading-tight truncate">
+              DASHBOARD PBS PJ3
+            </span>
+          </div>
+        </a>
+
+        <!-- Kanan: Pintasan Carian Rujukan & Butang Hamburger Mudah Alih -->
+        <div class="flex items-center gap-2">
+          <a
+            href="#/pusat-rujukan"
+            class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#174EA6] hover:bg-blue-700 text-xs font-bold text-white border border-blue-400/30 transition"
+            title="Carian Dokumen Pusat Rujukan PBS"
+          >
+            <i data-lucide="search" class="w-3.5 h-3.5 text-[#FFC43D]"></i>
+            <span>Cari Dokumen</span>
+          </a>
+
+          <button
+            id="mobileMenuToggleBtn"
+            type="button"
+            aria-expanded="false"
+            aria-controls="mobileMenuPanel"
+            aria-label="Buka atau tutup menu navigasi"
+            class="xl:hidden inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-[#174EA6] hover:bg-blue-700 text-white border border-white/20 text-xs font-extrabold cursor-pointer transition"
+          >
+            <i data-lucide="menu" class="w-5 h-5 text-[#FFC43D]"></i>
+            <span>Menu</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bar Bawah (Desktop XL): 12 Pilihan Menu Navigasi (Seksyen 4) -->
+    <div class="hidden xl:block bg-[#06153d] border-t border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav
+          id="desktopNavContainer"
+          aria-label="Navigasi Utama Dashboard PBS PJ3"
+          class="flex items-center justify-between gap-1 py-2 overflow-x-auto"
+        >
+          <!-- Dijana secara dinamik oleh src/main.js -->
+        </nav>
+      </div>
+    </div>
+
+    <!-- Panel Menu Mudah Alih & Tablet (Boleh dibuka dan ditutup) -->
+    <div
+      id="mobileMenuPanel"
+      class="hidden xl:hidden bg-[#06153d] border-t border-white/15 shadow-2xl"
+    >
+      <div class="max-w-7xl mx-auto px-4 py-4">
+        <div class="flex items-center justify-between pb-3 mb-3 border-b border-white/10">
+          <span class="text-xs font-extrabold uppercase tracking-wider text-[#FFC43D]">
+            Senarai 12 Halaman Navigasi PBS PJ3
+          </span>
+          <button
+            id="mobileMenuCloseBtn"
+            type="button"
+            aria-label="Tutup menu mudah alih"
+            class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-xs font-bold text-white cursor-pointer"
+          >
+            <i data-lucide="x" class="w-4 h-4"></i>
+            <span>Tutup</span>
+          </button>
+        </div>
+        <nav
+          id="mobileNavContainer"
+          aria-label="Navigasi Mudah Alih Dashboard PBS PJ3"
+          class="grid grid-cols-1 sm:grid-cols-2 gap-1.5"
+        >
+          <!-- Dijana secara dinamik oleh src/main.js -->
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== KANDUNGAN UTAMA HALAMAN ==================== -->
+  <main id="appMainContent" class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1">
+    <!-- Kandungan halaman semasa dipaparkan di sini oleh src/main.js -->
+    <noscript>
+      <div class="p-6 rounded-2xl bg-amber-50 border border-amber-300 text-amber-900">
+        Sila aktifkan JavaScript pada pelayar web anda untuk memaparkan navigasi dan halaman Dashboard PBS PJ3.
+      </div>
+    </noscript>
+  </main>
+
+  <!-- ==================== FOOTER RASMI SEKOLAH (Seksyen 4.1) ==================== -->
+  <footer class="bg-[#081C52] text-white border-t-4 border-[#FFC43D] mt-12 no-print relative overflow-hidden">
+    <div
+      class="absolute inset-0 bg-cover bg-center opacity-15 pointer-events-none"
+      style="background-image: url('public/images/footer-banner.jpg');"
+      aria-hidden="true"
+    ></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+        <div class="flex flex-col sm:flex-row items-center gap-4">
+          <div class="w-12 h-12 rounded-2xl bg-white p-1 border-2 border-[#FFC43D] flex items-center justify-center shrink-0">
+            <img
+              src="public/images/logo-pj3.png"
+              alt="Logo Rasmi SK Taman Permas Jaya 3"
+              class="w-full h-full object-contain"
+              onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+            />
+            <span class="hidden text-[8px] font-black text-[#081C52] text-center leading-none">LOGO RASMI PJ3</span>
+          </div>
+          <div>
+            <p class="text-sm sm:text-base font-black tracking-wide uppercase text-white">
+              SK Taman Permas Jaya 3 • <span class="text-[#FFC43D]">PJ3 BEST</span> • Kerja Sepasukan Pacu Kecemerlangan
+            </p>
+            <p class="text-xs text-blue-200 mt-1">
+              Dashboard PBS PJ3 — Pusat Rujukan Pentaksiran Berasaskan Sekolah (Kod Sekolah: JBA1092)
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-2 text-xs">
+          <a href="#/" class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-blue-100 font-semibold transition">Laman Utama</a>
+          <a href="#/pusat-rujukan" class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-blue-100 font-semibold transition">Pusat Rujukan</a>
+          <a href="#/senarai-semak" class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-blue-100 font-semibold transition">Senarai Semak</a>
+          <a href="#/pengurusan-dokumen" class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 text-blue-100 font-semibold transition">Pengurusan Dokumen</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Skrip Konfigurasi Berpusat, Komponen, Halaman & Pengawal Aplikasi -->
+  <script src="src/data/dashboardConfig.js"></script>
+  <script src="src/components/uiComponents.js"></script>
+  <script src="src/pages/pageRenderers.js"></script>
+  <script src="src/main.js"></script>
+</body>
+</html>
