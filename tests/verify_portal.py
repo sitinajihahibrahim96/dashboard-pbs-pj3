@@ -1,0 +1,174 @@
+import os
+import re
+import sys
+import subprocess
+import time
+import urllib.request
+
+# Ensure UTF-8 output on Windows
+if sys.platform.startswith("win"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8")
+    except Exception:
+        pass
+
+ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+def read_text(rel_path):
+    full_path = os.path.join(ROOT_DIR, rel_path)
+    assert os.path.exists(full_path), f"Fail wajib tidak ditemui: {rel_path}"
+    with open(full_path, "r", encoding="utf-8") as f:
+        return f.read()
+
+
+def run_static_and_spec_tests():
+    print("=== BAHAGIAN 1: UJIAN SPESIFIKASI & STRUKTUR KOD ===")
+
+    # 1. Semak kewujudan fail utama dan aset rujukan
+    required_files = [
+        "index.html",
+        "README.md",
+        "package.json",
+        "src/data/dashboardConfig.ts",
+        "src/data/dashboardConfig.js",
+        "src/components/uiComponents.js",
+        "src/pages/pageRenderers.js",
+        "src/main.js",
+        "src/styles/main.css",
+        "public/images/logo-pj3.png",
+        "public/images/school-hero.jpg",
+        "public/images/footer-banner.jpg",
+        "public/images/MAIN DASHBOARD SK TAMAN PERMAS JAYA 3.jpeg",
+        "public/images/98935489-A711-421F-8776-2F9E85AA2DD7.jpeg",
+    ]
+    for rf in required_files:
+        p = os.path.join(ROOT_DIR, rf)
+        assert os.path.exists(p), f"GAGAL: Fail {rf} tidak wujud!"
+    print("[LULUS] 1. Semua 14 fail teras dan aset gambar rujukan wujud.")
+
+    # 2. Semak 12 laluan navigasi dalaman dalam dashboardConfig.js & main.js
+    config_js = read_text("src/data/dashboardConfig.js")
+    main_js = read_text("src/main.js")
+    pages_js = read_text("src/pages/pageRenderers.js")
+    ui_js = read_text("src/components/uiComponents.js")
+    index_html = read_text("index.html")
+    css_text = read_text("src/styles/main.css")
+
+    expected_routes = [
+        "/",
+        "/dashboard-pbs",
+        "/pbd",
+        "/pajsk",
+        "/matriks",
+        "/ppsi",
+        "/segak-bmi",
+        "/takwim",
+        "/penjaminan-mutu",
+        "/pusat-rujukan",
+        "/senarai-semak",
+        "/pengurusan-dokumen",
+    ]
+    for route in expected_routes:
+        assert f'route: "{route}"' in config_js, f"GAGAL: Route {route} tiada dalam navigationItems!"
+        assert f'case "{route}":' in main_js, f"GAGAL: Route {route} tidak dikendalikan dalam router main.js!"
+    print(f"[LULUS] 2. Kesemua {len(expected_routes)} laluan halaman (routes) wujud dalam navigasi dan router.")
+
+    # 3. Semak tiada URL palsu/rekaan dalam dashboardLinks
+    links_block_match = re.search(r"dashboardLinks:\s*\{([^}]+)\}", config_js, re.DOTALL)
+    assert links_block_match, "GAGAL: Objek dashboardLinks tidak ditemui!"
+    links_block = links_block_match.group(1)
+    http_matches = re.findall(r"https?://[^\s\"']+", links_block)
+    assert len(http_matches) == 0, f"GAGAL: Ditemui URL rekaan dalam dashboardLinks: {http_matches}"
+    print("[LULUS] 3. Tiada URL rekaan atau pautan palsu di dalam dashboardLinks.")
+
+    # 4. Semak data makluman, takwim dan dokumen rujukan tidak mengandungi data rekaan
+    assert "noticesData: []" in config_js, "GAGAL: noticesData mestilah kosong secara lalai (tiada makluman rekaan)."
+    assert "takwimData: []" in config_js, "GAGAL: takwimData mestilah kosong secara lalai (tiada tarikh rekaan)."
+    assert "referenceDocumentsData: []" in config_js, "GAGAL: referenceDocumentsData mestilah kosong secara lalai."
+    print("[LULUS] 4. Makluman, Takwim dan Dokumen Rujukan bebas daripada data/tarikh rekaan.")
+
+    # 5. Semak kandungan khusus halaman mengikut spesifikasi
+    required_phrases = [
+        ("DASHBOARD", "Tajuk utama Laman Utama"),
+        ("Pusat Rujukan Pentaksiran Berasaskan Sekolah", "Subtajuk rasmi"),
+        ("Kerja Sepasukan Pacu Kecemerlangan", "Slogan sekolah"),
+        ("Buka Dashboard PBD Sedia Ada", "Butang utama halaman PBD"),
+        ("Pautan belum ditetapkan", "Label pautan belum ditetapkan"),
+        ("Pautan PAJSK akan dikemas kini oleh penyelaras", "Label khusus halaman PAJSK"),
+        ("Buka Dashboard Matriks Sedia Ada", "Butang utama halaman Matriks Tahun 4"),
+        ("BMI 5–9 Tahun", "Subbahagian berasingan BMI 5-9 Tahun"),
+        ("Tiada maklumat takwim dimasukkan", "Keadaan kosong Takwim Pentaksiran"),
+        ("Pemantauan", "Komponen 1 Penjaminan Mutu"),
+        ("Pengesanan", "Komponen 2 Penjaminan Mutu"),
+        ("Penyelarasan", "Komponen 3 Penjaminan Mutu"),
+        ("Pementoran", "Komponen 4 Penjaminan Mutu"),
+        ("Moderasi", "Komponen 5 Penjaminan Mutu"),
+        ("Tindakan Susulan", "Komponen 6 Penjaminan Mutu"),
+        ("Senarai Semak Filing PBS", "Kad 1 Senarai Semak"),
+        ("Senarai Semak Filing PBD", "Kad 2 Senarai Semak"),
+        ("Senarai Semak Filing Matriks Pembelajaran Tahun 4", "Kad 3 Senarai Semak"),
+        ("Fail belum dimuat naik", "Status apabila fail Excel belum dimuat naik"),
+        ("LOGO RASMI PJ3", "Ruang fallback logo rasmi"),
+    ]
+    combined_source = config_js + "\n" + pages_js + "\n" + index_html + "\n" + ui_js
+    for phrase, desc in required_phrases:
+        assert phrase in combined_source, f"GAGAL: Frasa wajib '{phrase}' ({desc}) tidak ditemui!"
+    print(f"[LULUS] 5. Semua {len(required_phrases)} teks, label keadaan kosong, subbahagian dan komponen wajib disahkan.")
+
+    # 6. Semak token warna reka bentuk dalam main.css / index.html
+    for token in ["#081C52", "#174EA6", "#FFC43D", "#F4F7FF", "#112455", "#5A688C"]:
+        assert token in css_text or token in index_html, f"GAGAL: Token warna {token} tidak ditemui!"
+    print("[LULUS] 6. Semua token reka bentuk warna Navy, Biru Diraja dan Emas PJ3 BEST disahkan.")
+
+    # 7. Semak fail Excel Senarai Semak Filing tidak diaktifkan secara palsu jika fail tiada di public/docs/
+    excel_file = os.path.join(ROOT_DIR, "public", "docs", "Senarai_Semak_Filing_PBS_PBD_Matriks_PJ3.xlsx")
+    if not os.path.exists(excel_file):
+        assert "filingCombinedExcelAvailable: false" in config_js, (
+            "GAGAL: filingCombinedExcelAvailable mestilah false apabila fail Excel belum wujud!"
+        )
+        print("[LULUS] 7. Fail Excel belum wujud di public/docs/ dan status muat turun disahkan memaparkan 'Fail belum dimuat naik'.")
+
+
+def run_http_integration_tests():
+    print("\n=== BAHAGIAN 2: UJIAN INTEGRASI PELAYAN HTTP TEMPATAN ===")
+    port = 8199
+    proc = subprocess.Popen(
+        [sys.executable, "-m", "http.server", str(port)],
+        cwd=ROOT_DIR,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    )
+    try:
+        time.sleep(1.2)
+        endpoints = [
+            "/index.html",
+            "/src/styles/main.css",
+            "/src/data/dashboardConfig.js",
+            "/src/components/uiComponents.js",
+            "/src/pages/pageRenderers.js",
+            "/src/main.js",
+            "/public/images/logo-pj3.png",
+            "/public/images/school-hero.jpg",
+            "/public/images/footer-banner.jpg",
+        ]
+        for ep in endpoints:
+            url = f"http://127.0.0.1:{port}{ep}"
+            with urllib.request.urlopen(url, timeout=5) as resp:
+                status = resp.status
+                body_len = len(resp.read())
+                assert status == 200, f"GAGAL HTTP {status} pada {ep}"
+                assert body_len > 0, f"GAGAL: Kandungan kosong pada {ep}"
+                print(f"[LULUS] HTTP 200 OK -> {ep} ({body_len} bait)")
+    finally:
+        proc.terminate()
+        try:
+            proc.wait(timeout=3)
+        except Exception:
+            proc.kill()
+
+
+if __name__ == "__main__":
+    run_static_and_spec_tests()
+    run_http_integration_tests()
+    print("\n=== KEPUTUSAN AKHIR: SEMUA UJIAN LULUS SEPENUHNYA (100%) ===")
