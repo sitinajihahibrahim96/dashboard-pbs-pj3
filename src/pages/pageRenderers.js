@@ -494,10 +494,121 @@ window.PBS_PAGES = (function () {
   }
 
   /**
-   * 3. HALAMAN PBD (/pbd) — Seksyen 5.1 Spesifikasi
+   * 3. HALAMAN PBD (/pbd) — Seksyen 5.1 Spesifikasi + Ciri Pemilihan Tahun / Arkib Sesi Akademik
    */
-  function renderPbdPage(config) {
-    const { dashboardLinks } = config;
+  function renderPbdPage(config, selectedYear = "2026") {
+    const { dashboardLinks, pbdYearlyArchives } = config;
+    const archives = pbdYearlyArchives || [
+      {
+        year: "2026",
+        label: "Sesi Akademik 2026 (Semasa)",
+        isCurrent: true,
+        dashboardUrl: dashboardLinks.PBD_DASHBOARD_URL,
+        rekodTransitUrl: dashboardLinks.pbdTemplatSekolahUrl,
+        analisisPbdUrl: dashboardLinks.pbdAnalisisUrl,
+        dialogPrestasiUrl: dashboardLinks.pbdPelaporanUrl,
+        dskpPanitiaUrl: dashboardLinks.pbdDskpPanitiaUrl,
+        instrumenMutuUrl: dashboardLinks.pbdInstrumenMutuUrl,
+        panduanPelaksanaanUrl: dashboardLinks.pbdPanduanUrl,
+      },
+    ];
+
+    const activeYearObj =
+      archives.find((a) => a.year === selectedYear) || archives[0];
+
+    const yearTabsHtml = archives
+      .map((item) => {
+        const isActive = item.year === activeYearObj.year;
+        return `
+          <button
+            type="button"
+            data-pbd-year="${UI.escapeHtml(item.year)}"
+            class="px-4 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold border transition cursor-pointer flex items-center gap-2 ${
+              isActive
+                ? "bg-[#081C52] text-[#FFC43D] border-[#081C52] shadow-md"
+                : "bg-white hover:bg-blue-50 text-[#112455] border-slate-200"
+            }"
+          >
+            <i data-lucide="${item.isCurrent ? "calendar-check-2" : "archive"}" class="w-4 h-4"></i>
+            <span>Tahun ${UI.escapeHtml(item.year)}</span>
+            ${
+              item.isCurrent
+                ? `<span class="px-2 py-0.5 rounded-full text-[10px] font-black uppercase ${
+                    isActive ? "bg-[#FFC43D] text-[#081C52]" : "bg-emerald-100 text-emerald-800"
+                  }">Semasa</span>`
+                : `<span class="px-2 py-0.5 rounded-full text-[10px] font-bold ${
+                    isActive ? "bg-white/15 text-amber-200" : "bg-slate-100 text-slate-600"
+                  }">Arkib</span>`
+            }
+          </button>
+        `;
+      })
+      .join("");
+
+    // 6 Kad Modul Utama PBD (Rekod Transit, Analisis PBD, Dialog Prestasi, DSKP Panitia, Instrumen Penjaminan Mutu, Panduan Pelaksanaan)
+    const pbdResourceCards = [
+      {
+        num: "01",
+        title: "Rekod Transit PBD",
+        subtitle: `Sesi Akademik ${activeYearObj.year}`,
+        desc: "Folder templat dan perekodan transit PBD guru mengikut aliran tahun dan panitia mata pelajaran.",
+        url: activeYearObj.rekodTransitUrl,
+        configKey: "pbdTemplatSekolahUrl",
+        icon: "file-spreadsheet",
+        theme: "blue",
+      },
+      {
+        num: "02",
+        title: "Analisis PBD",
+        subtitle: `Sesi Akademik ${activeYearObj.year}`,
+        desc: "Rumusan analisis tahap penguasaan (TP) murid, data penguasaan aliran dan pelaporan PBD sekolah.",
+        url: activeYearObj.analisisPbdUrl,
+        configKey: "pbdAnalisisUrl",
+        icon: "bar-chart-3",
+        theme: "emerald",
+      },
+      {
+        num: "03",
+        title: "Dialog Prestasi PBD",
+        subtitle: `Sesi Akademik ${activeYearObj.year}`,
+        desc: "Bahan pembentangan panitia, rumusan dapatan Dialog Prestasi dan pelan intervensi pengukuhan / pemulihan.",
+        url: activeYearObj.dialogPrestasiUrl,
+        configKey: "pbdPelaporanUrl",
+        icon: "presentation",
+        theme: "amber",
+      },
+      {
+        num: "04",
+        title: "DSKP Panitia",
+        subtitle: "Dokumen Standard Kurikulum & Pentaksiran",
+        desc: "Koleksi lengkap DSKP mengikut panitia mata pelajaran dan tahun sebagai rujukan SK, SP dan Standard Prestasi (SPi).",
+        url: activeYearObj.dskpPanitiaUrl,
+        configKey: "pbdDskpPanitiaUrl",
+        icon: "book-marked",
+        theme: "purple",
+      },
+      {
+        num: "05",
+        title: "Instrumen Penjaminan Mutu PBD",
+        subtitle: "Pemantauan, Pengesanan, Penyelarasan & Pementoran",
+        desc: "Folder borang dan instrumen rasmi penjaminan kualiti PBD untuk kegunaan SLT, MLT dan Guru Mata Pelajaran.",
+        url: activeYearObj.instrumenMutuUrl,
+        configKey: "pbdInstrumenMutuUrl",
+        icon: "shield-check",
+        theme: "indigo",
+      },
+      {
+        num: "06",
+        title: "Panduan Pelaksanaan PBD",
+        subtitle: "Garis Panduan & Rujukan Rasmi",
+        desc: "Buku panduan pelaksanaan Pentaksiran Bilik Darjah, tatacara pertimbangan profesional dan rujukan guru.",
+        url: activeYearObj.panduanPelaksanaanUrl,
+        configKey: "pbdPanduanUrl",
+        icon: "book-open-check",
+        theme: "teal",
+      },
+    ];
+
     const components = [
       {
         step: "01",
@@ -542,70 +653,108 @@ window.PBS_PAGES = (function () {
         badge: "Modul 01 • PBD",
         title: "Pentaksiran Bilik Darjah (PBD)",
         subtitle:
-          "Pintu masuk kepada dashboard PBD sedia ada serta rujukan pelaksanaan, rekod transit dan pelaporan PBD sekolah.",
+          "Pintu masuk kepada Dashboard MyPBD SKTPJ3, Rekod Transit, Analisis PBD, Dialog Prestasi Panitia, DSKP, Instrumen Penjaminan Mutu serta Arkib Tahunan.",
         icon: "book-open-check",
       })}
 
       <!-- Makluman Penting Sumber Rekod Utama -->
-      <div class="mb-8 p-5 rounded-2xl bg-blue-50 border-l-4 border-[#174EA6] flex items-start gap-3.5">
+      <div class="mb-6 p-5 rounded-2xl bg-blue-50 border-l-4 border-[#174EA6] flex items-start gap-3.5">
         <i data-lucide="info" class="w-5 h-5 text-[#174EA6] shrink-0 mt-0.5"></i>
         <div class="text-xs sm:text-sm text-[#112455] leading-relaxed">
           <strong class="font-extrabold">Makluman Penting:</strong>
-          Halaman ini berfungsi sebagai pintu masuk navigasi dan rujukan.
+          Halaman ini berfungsi sebagai pintu masuk navigasi dan rujukan berpusat.
           <strong>Sistem atau dashboard PBD asal sekolah kekal sebagai sumber rekod utama.</strong>
         </div>
       </div>
 
+      <!-- Pemilih Sesi Akademik / Arkib Tahun Sebelumnya (Ciri Inspirasi Portal PBD Sekolah) -->
+      <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs mb-8">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <span class="text-xs font-extrabold uppercase tracking-wider text-[#174EA6] flex items-center gap-1.5">
+              <i data-lucide="history" class="w-4 h-4"></i>
+              <span>Pilihan Sesi Akademik & Arkib Tahunan PBD</span>
+            </span>
+            <p class="text-xs text-[#5A688C] mt-0.5">
+              Pilih tahun semasa (<strong>2026</strong>) atau semak rekod tahun sebelumnya (<strong>2025 / 2024</strong>) bagi tujuan perbandingan prestasi panitia.
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            ${yearTabsHtml}
+          </div>
+        </div>
+      </div>
+
       <!-- Pautan Utama Dashboard PBD Sedia Ada -->
-      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm mb-8">
+      <div class="bg-gradient-to-r from-[#081C52] via-[#0e2a75] to-[#174EA6] text-white rounded-3xl p-6 sm:p-8 border-2 border-[#FFC43D] shadow-lg mb-10">
         <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
           <div class="max-w-2xl">
-            <span class="px-2.5 py-1 rounded-md bg-blue-100 text-blue-800 text-xs font-extrabold uppercase">Pautan Utama Sistem</span>
-            <h2 class="text-xl sm:text-2xl font-black text-[#112455] mt-2">
-              Dashboard PBD Sedia Ada SK Taman Permas Jaya 3
+            <span class="px-3 py-1 rounded-full bg-[#FFC43D] text-[#081C52] text-xs font-black uppercase tracking-wider">
+              Pautan Utama Sistem • ${UI.escapeHtml(activeYearObj.label)}
+            </span>
+            <h2 class="text-xl sm:text-3xl font-black text-white mt-3">
+              Dashboard PBD Sedia Ada SK Taman Permas Jaya 3 (${UI.escapeHtml(activeYearObj.year)})
             </h2>
-            <p class="text-xs sm:text-sm text-[#5A688C] mt-1.5 leading-relaxed">
-              Gunakan butang di bawah untuk mengakses terus Dashboard PBD sedia ada bagi urusan pengisian rekod, semakan pelaporan dan analisis PBD sekolah.
+            <p class="text-xs sm:text-sm text-blue-100 mt-2 leading-relaxed">
+              Gunakan butang di sebelah untuk membuka terus <strong>MyPBD SKTPJ3 (${UI.escapeHtml(activeYearObj.year)})</strong> bagi urusan pengisian rekod, semakan pelaporan dan analisis PBD sekolah.
             </p>
           </div>
           <div class="shrink-0">
             ${UI.renderExternalActionButton({
-              url: dashboardLinks.PBD_DASHBOARD_URL,
+              url: activeYearObj.dashboardUrl,
               label: "Buka Dashboard PBD Sedia Ada",
-              emptyLabel: "Pautan belum ditetapkan",
-              configKeyHint: "PBD_DASHBOARD_URL",
+              emptyLabel: `Pautan belum ditetapkan (Arkib ${activeYearObj.year})`,
+              configKeyHint: activeYearObj.isCurrent ? "PBD_DASHBOARD_URL" : `pbdYearlyArchives[${activeYearObj.year}]`,
               size: "lg",
-              variant: "primary",
+              variant: "gold",
             })}
           </div>
         </div>
       </div>
 
-      <!-- Ruang Pautan Panduan & Templat / Rekod Sekolah -->
+      <!-- Grid 6 Folder & Sumber Utama PBD (Rekod Transit, Analisis, Dialog Prestasi, DSKP, Instrumen Mutu, Panduan) -->
       <div class="mb-10">
-        <h3 class="text-lg font-black text-[#112455] uppercase mb-4 flex items-center gap-2">
-          <i data-lucide="link" class="w-5 h-5 text-[#174EA6]"></i>
-          <span>Pautan Panduan & Templat PBD Sekolah</span>
-        </h3>
-        <div class="space-y-3">
-          ${UI.renderResourceSlotRow({
-            title: "Panduan Pelaksanaan Pentaksiran Bilik Darjah (PBD)",
-            description: "Rujukan pelaksanaan PBD, kaedah pentaksiran dan pertimbangan profesional.",
-            url: dashboardLinks.pbdPanduanUrl,
-            configKey: "pbdPanduanUrl",
-          })}
-          ${UI.renderResourceSlotRow({
-            title: "Templat & Rekod Transit PBD Sekolah",
-            description: "Folder templat rekod transit dan borang perekodan PBD mengikut panitia / tahun.",
-            url: dashboardLinks.pbdTemplatSekolahUrl,
-            configKey: "pbdTemplatSekolahUrl",
-          })}
-          ${UI.renderResourceSlotRow({
-            title: "Tapak Pelaporan & Dialog Prestasi PBD",
-            description: "Pautan ke ruang pelaporan PBD yang telah disahkan oleh penyelaras.",
-            url: dashboardLinks.pbdPelaporanUrl,
-            configKey: "pbdPelaporanUrl",
-          })}
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+          <h3 class="text-lg sm:text-xl font-black text-[#112455] uppercase flex items-center gap-2">
+            <i data-lucide="folder-git-2" class="w-5 h-5 text-[#174EA6]"></i>
+            <span>Folder & Bahan Pengurusan PBD (${UI.escapeHtml(activeYearObj.year)})</span>
+          </h3>
+          <span class="text-xs font-bold text-[#5A688C]">
+            Klik butang pada setiap kad untuk membuka folder Google Drive rasmi
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          ${pbdResourceCards
+            .map((rc) => {
+              const t = UI.getTheme(rc.theme);
+              return `
+                <section class="bg-white rounded-2xl p-6 border-2 ${t.border} shadow-sm flex flex-col justify-between gap-5">
+                  <div>
+                    <div class="flex items-center justify-between gap-2 mb-3">
+                      <span class="px-3 py-1 rounded-lg text-xs font-black ${t.badge}">${rc.num}</span>
+                      <div class="w-10 h-10 rounded-xl ${t.iconBox} border flex items-center justify-center">
+                        <i data-lucide="${rc.icon}" class="w-5 h-5"></i>
+                      </div>
+                    </div>
+                    <h4 class="text-base sm:text-lg font-black text-[#112455] uppercase">${UI.escapeHtml(rc.title)}</h4>
+                    <p class="text-xs font-bold text-[#174EA6] mt-0.5">${UI.escapeHtml(rc.subtitle)}</p>
+                    <p class="text-xs text-[#5A688C] mt-2 leading-relaxed">${UI.escapeHtml(rc.desc)}</p>
+                  </div>
+
+                  <div class="pt-3 border-t border-slate-100">
+                    ${UI.renderExternalActionButton({
+                      url: rc.url,
+                      label: `Buka ${rc.title}`,
+                      emptyLabel: "Pautan belum ditetapkan",
+                      configKeyHint: rc.configKey,
+                      size: "md",
+                    })}
+                  </div>
+                </section>
+              `;
+            })
+            .join("")}
         </div>
       </div>
 
@@ -613,7 +762,7 @@ window.PBS_PAGES = (function () {
       <div>
         <h3 class="text-lg font-black text-[#112455] uppercase mb-4 flex items-center gap-2">
           <i data-lucide="layers" class="w-5 h-5 text-[#174EA6]"></i>
-          <span>Ringkasan Komponen Pelaksanaan PBD</span>
+          <span>Ringkasan 6 Komponen Pelaksanaan PBD</span>
         </h3>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           ${components
