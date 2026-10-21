@@ -36,11 +36,14 @@ window.DASHBOARD_PBS_CONFIG = {
    * PAUTAN UTAMA PORTAL & MODUL (Isi URL sebenar apabila telah disahkan)
    */
   dashboardLinks: {
-    // 1. PBD (Pentaksiran Bilik Darjah)
-    PBD_DASHBOARD_URL: "",
-    pbdPanduanUrl: "",
-    pbdTemplatSekolahUrl: "",
-    pbdPelaporanUrl: "",
+    // 1. PBD (Pentaksiran Bilik Darjah) — 2026 & Rujukan Utama
+    PBD_DASHBOARD_URL: "https://canva.link/mypbd-sktpj3-2026",
+    pbdPanduanUrl: "https://drive.google.com/drive/folders/1fuvVolvc0aAv-JnQ-pjNN3W0rMZKjd9T?usp=drive_link",
+    pbdTemplatSekolahUrl: "https://drive.google.com/drive/u/0/folders/1cvSAn7b5I7pJry24yw1mBHEkyTHbm_Dd",
+    pbdAnalisisUrl: "https://drive.google.com/drive/folders/1EdDP8fKWwfbKU9zIzzSxUnOCIKazAc41?usp=drive_link",
+    pbdPelaporanUrl: "https://drive.google.com/drive/folders/1ajvuRvl0_gHLnoWY-VQTUamCsgO9TJLT?usp=drive_link",
+    pbdDskpPanitiaUrl: "https://drive.google.com/drive/folders/16dWavvRqN_HCG4WPrDQuJTufdJj2A3BT?usp=drive_link",
+    pbdInstrumenMutuUrl: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
 
     // 2. PAJSK (Pentaksiran Aktiviti Jasmani, Sukan & Kokurikulum)
     PAJSK_DASHBOARD_URL: "",
@@ -76,11 +79,11 @@ window.DASHBOARD_PBS_CONFIG = {
     bmiTindakanSusulanUrl: "",
 
     // 6. Penjaminan Mutu PBS (6 Komponen)
-    mutuPemantauanUrl: "",
-    mutuPengesananUrl: "",
-    mutuPenyelarasanUrl: "",
-    mutuPementoranUrl: "",
-    mutuModerasiUrl: "",
+    mutuPemantauanUrl: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
+    mutuPengesananUrl: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
+    mutuPenyelarasanUrl: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
+    mutuPementoranUrl: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
+    mutuModerasiUrl: "https://drive.google.com/drive/folders/1ajvuRvl0_gHLnoWY-VQTUamCsgO9TJLT?usp=drive_link",
     mutuTindakanSusulanUrl: "",
 
     // 7. Senarai Semak Filing (Muat Turun)
@@ -94,6 +97,50 @@ window.DASHBOARD_PBS_CONFIG = {
     // 8. Folder Digital Pengurusan Dokumen
     mainPbsDriveFolderUrl: "",
   },
+
+  /**
+   * PENGURUSAN PBD MENGIKUT SESI AKADEMIK / ARKIB TAHUN SEBELUMNYA
+   * Membolehkan guru menyemak Rekod Transit, Analisis PBD dan Dialog Prestasi
+   * mengikut tahun semasa (2026) serta arkib tahun-tahun sebelumnya (2025, 2024).
+   */
+  pbdYearlyArchives: [
+    {
+      year: "2026",
+      label: "Sesi Akademik 2026 (Semasa)",
+      isCurrent: true,
+      dashboardUrl: "https://canva.link/mypbd-sktpj3-2026",
+      rekodTransitUrl: "https://drive.google.com/drive/u/0/folders/1cvSAn7b5I7pJry24yw1mBHEkyTHbm_Dd",
+      analisisPbdUrl: "https://drive.google.com/drive/folders/1EdDP8fKWwfbKU9zIzzSxUnOCIKazAc41?usp=drive_link",
+      dialogPrestasiUrl: "https://drive.google.com/drive/folders/1ajvuRvl0_gHLnoWY-VQTUamCsgO9TJLT?usp=drive_link",
+      dskpPanitiaUrl: "https://drive.google.com/drive/folders/16dWavvRqN_HCG4WPrDQuJTufdJj2A3BT?usp=drive_link",
+      instrumenMutuUrl: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
+      panduanPelaksanaanUrl: "https://drive.google.com/drive/folders/1fuvVolvc0aAv-JnQ-pjNN3W0rMZKjd9T?usp=drive_link",
+    },
+    {
+      year: "2025",
+      label: "Arkib Sesi Akademik 2025",
+      isCurrent: false,
+      dashboardUrl: "",
+      rekodTransitUrl: "",
+      analisisPbdUrl: "",
+      dialogPrestasiUrl: "",
+      dskpPanitiaUrl: "https://drive.google.com/drive/folders/16dWavvRqN_HCG4WPrDQuJTufdJj2A3BT?usp=drive_link",
+      instrumenMutuUrl: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
+      panduanPelaksanaanUrl: "https://drive.google.com/drive/folders/1fuvVolvc0aAv-JnQ-pjNN3W0rMZKjd9T?usp=drive_link",
+    },
+    {
+      year: "2024",
+      label: "Arkib Sesi Akademik 2024",
+      isCurrent: false,
+      dashboardUrl: "",
+      rekodTransitUrl: "",
+      analisisPbdUrl: "",
+      dialogPrestasiUrl: "",
+      dskpPanitiaUrl: "https://drive.google.com/drive/folders/16dWavvRqN_HCG4WPrDQuJTufdJj2A3BT?usp=drive_link",
+      instrumenMutuUrl: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
+      panduanPelaksanaanUrl: "https://drive.google.com/drive/folders/1fuvVolvc0aAv-JnQ-pjNN3W0rMZKjd9T?usp=drive_link",
+    },
+  ],
 
   /**
    * 10 KAD MENU UTAMA (Mengikut jadual Seksyen 4.2 Spesifikasi)
@@ -236,48 +283,75 @@ window.DASHBOARD_PBS_CONFIG = {
   /**
    * MAKLUMAN TERKINI
    * PENTING: Kosong secara lalai supaya tidak memaparkan berita atau pengumuman rekaan.
-   * Contoh format objek:
-   * {
-   *   id: "notis-1",
-   *   title: "Tajuk Makluman",
-   *   date: "Tarikh Disahkan",
-   *   summary: "Ringkasan makluman...",
-   *   category: "PBD",
-   *   url: "",
-   *   status: "published" // atau "draft"
-   * }
    */
   noticesData: [],
 
   /**
    * TAKWIM PENTAKSIRAN
    * PENTING: Kosong secara lalai. Semua tarikh mesti datang daripada data yang telah disahkan pengguna.
-   * Contoh format objek:
-   * {
-   *   id: "takwim-1",
-   *   title: "Nama Pentaksiran / Aktiviti",
-   *   startDate: "Tarikh Mula Disahkan",
-   *   endDate: "Tarikh Akhir (Jika Ada)",
-   *   description: "Penerangan ringkas dan kumpulan sasaran",
-   *   category: "PBD", // PBS | PBD | PAJSK | Matriks Tahun 4 | PPsi | SEGAK & BMI | Penjaminan Mutu
-   *   sourceUrl: ""
-   * }
    */
   takwimData: [],
 
   /**
    * DOKUMEN PUSAT RUJUKAN PBS
-   * PENTING: Kosong secara lalai. Jangan reka tajuk dokumen rasmi, tarikh edisi, nombor pekeliling atau URL.
-   * Kategori yang disokong:
-   * - "Panduan Pengurusan PBS"
-   * - "Panduan Pelaksanaan PBD"
-   * - "Pekeliling / Surat Siaran"
-   * - "Borang dan Instrumen"
-   * - "Templat Sekolah"
-   * - "Pautan Rasmi KPM / JPN / PPD"
-   * - "Dokumen Rujukan Tambahan"
+   * Disambungkan dengan pautan Google Drive rasmi yang telah dibekalkan oleh pengguna.
    */
-  referenceDocumentsData: [],
+  referenceDocumentsData: [
+    {
+      id: "doc-panduan-pbd",
+      title: "Folder Panduan Pelaksanaan Pentaksiran Bilik Darjah (PBD)",
+      category: "Panduan Pelaksanaan PBD",
+      summary: "Koleksi buku panduan pelaksanaan PBD, garis panduan pertimbangan profesional dan rujukan pelaksanaan guru.",
+      versionOrDate: "Semasa",
+      ownerOrSource: "Unit PBD SK Taman Permas Jaya 3",
+      url: "https://drive.google.com/drive/folders/1fuvVolvc0aAv-JnQ-pjNN3W0rMZKjd9T?usp=drive_link",
+    },
+    {
+      id: "doc-dskp-panitia",
+      title: "Folder DSKP Mengikut Panitia Mata Pelajaran",
+      category: "Panduan Pelaksanaan PBD",
+      summary: "Himpunan Dokumen Standard Kurikulum dan Pentaksiran (DSKP) mengikut panitia dan aliran tahun.",
+      versionOrDate: "Semasa",
+      ownerOrSource: "Panitia Mata Pelajaran SKTPJ3",
+      url: "https://drive.google.com/drive/folders/16dWavvRqN_HCG4WPrDQuJTufdJj2A3BT?usp=drive_link",
+    },
+    {
+      id: "doc-instrumen-mutu-pbd",
+      title: "Folder Instrumen Penjaminan Mutu PBD",
+      category: "Borang dan Instrumen",
+      summary: "Borang dan instrumen rasmi bagi pelaksanaan pemantauan, pengesanan, penyelarasan dan pementoran PBD.",
+      versionOrDate: "Semasa",
+      ownerOrSource: "Jawatankuasa Penjaminan Mutu PBS SKTPJ3",
+      url: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
+    },
+    {
+      id: "doc-rekod-transit-pbd",
+      title: "Folder Rekod Transit PBD Sekolah",
+      category: "Templat Sekolah",
+      summary: "Folder templat dan perekodan transit PBD mengikut kelas dan mata pelajaran.",
+      versionOrDate: "2026",
+      ownerOrSource: "Penyelaras PBD SKTPJ3",
+      url: "https://drive.google.com/drive/u/0/folders/1cvSAn7b5I7pJry24yw1mBHEkyTHbm_Dd",
+    },
+    {
+      id: "doc-analisis-pbd",
+      title: "Folder Analisis & Rumusan Data PBD",
+      category: "Templat Sekolah",
+      summary: "Folder analisis penguasaan murid dan rumusan pelaporan PBD peringkat sekolah.",
+      versionOrDate: "2026",
+      ownerOrSource: "Penyelaras PBD SKTPJ3",
+      url: "https://drive.google.com/drive/folders/1EdDP8fKWwfbKU9zIzzSxUnOCIKazAc41?usp=drive_link",
+    },
+    {
+      id: "doc-dialog-prestasi-pbd",
+      title: "Folder Dialog Prestasi PBD",
+      category: "Dokumen Rujukan Tambahan",
+      summary: "Bahan pembentangan, rumusan dapatan dan pelan intervensi Dialog Prestasi PBD mengikut panitia.",
+      versionOrDate: "2026",
+      ownerOrSource: "Unit Kurikulum & PBD SKTPJ3",
+      url: "https://drive.google.com/drive/folders/1ajvuRvl0_gHLnoWY-VQTUamCsgO9TJLT?usp=drive_link",
+    },
+  ],
 
   /**
    * KATEGORI PUSAT RUJUKAN PBS
@@ -351,10 +425,55 @@ window.DASHBOARD_PBS_CONFIG = {
       id: "doc-induk-pbd",
       code: "FAIL 02",
       category: "Pentaksiran Bilik Darjah (PBD)",
-      title: "Folder Pengurusan, Penyelarasan & Pelaporan PBD",
+      title: "Dashboard Utama MyPBD SKTPJ3 2026",
       ownerUnit: "Penyelaras PBD",
       accessNote: "Akses Guru & Pentadbir",
-      url: "",
+      url: "https://canva.link/mypbd-sktpj3-2026",
+    },
+    {
+      id: "doc-rekod-transit",
+      code: "FAIL 02A",
+      category: "Pentaksiran Bilik Darjah (PBD)",
+      title: "Folder Rekod Transit PBD Mengikut Kelas & Mata Pelajaran",
+      ownerUnit: "Penyelaras PBD / Guru Mata Pelajaran",
+      accessNote: "Akses Guru & Pentadbir",
+      url: "https://drive.google.com/drive/u/0/folders/1cvSAn7b5I7pJry24yw1mBHEkyTHbm_Dd",
+    },
+    {
+      id: "doc-analisis-pbd-idx",
+      code: "FAIL 02B",
+      category: "Pentaksiran Bilik Darjah (PBD)",
+      title: "Folder Analisis & Pelaporan PBD",
+      ownerUnit: "Penyelaras PBD",
+      accessNote: "Akses Guru & Pentadbir",
+      url: "https://drive.google.com/drive/folders/1EdDP8fKWwfbKU9zIzzSxUnOCIKazAc41?usp=drive_link",
+    },
+    {
+      id: "doc-dialog-prestasi-idx",
+      code: "FAIL 02C",
+      category: "Pentaksiran Bilik Darjah (PBD)",
+      title: "Folder Dialog Prestasi PBD",
+      ownerUnit: "Unit Kurikulum & Panitia",
+      accessNote: "Akses Guru & Pentadbir",
+      url: "https://drive.google.com/drive/folders/1ajvuRvl0_gHLnoWY-VQTUamCsgO9TJLT?usp=drive_link",
+    },
+    {
+      id: "doc-dskp-idx",
+      code: "FAIL 02D",
+      category: "Pentaksiran Bilik Darjah (PBD)",
+      title: "Folder DSKP Panitia Mata Pelajaran",
+      ownerUnit: "Ketua Panitia",
+      accessNote: "Akses Warga Pendidik",
+      url: "https://drive.google.com/drive/folders/16dWavvRqN_HCG4WPrDQuJTufdJj2A3BT?usp=drive_link",
+    },
+    {
+      id: "doc-panduan-pbd-idx",
+      code: "FAIL 02E",
+      category: "Pentaksiran Bilik Darjah (PBD)",
+      title: "Folder Panduan Pelaksanaan PBD",
+      ownerUnit: "Penyelaras PBD",
+      accessNote: "Akses Warga Pendidik",
+      url: "https://drive.google.com/drive/folders/1fuvVolvc0aAv-JnQ-pjNN3W0rMZKjd9T?usp=drive_link",
     },
     {
       id: "doc-matriks-t4",
@@ -396,10 +515,10 @@ window.DASHBOARD_PBS_CONFIG = {
       id: "doc-penjaminan-mutu",
       code: "FAIL 07",
       category: "Penjaminan Mutu PBS",
-      title: "Folder Instrumen Pemantauan, Pengesanan, Penyelarasan & Pementoran",
+      title: "Folder Instrumen Penjaminan Mutu PBD (Pemantauan, Pengesanan, Penyelarasan & Pementoran)",
       ownerUnit: "Jawatankuasa Penjaminan Mutu PBS",
       accessNote: "Akses SLT, MLT & Penyelaras",
-      url: "",
+      url: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
     },
   ],
 };
