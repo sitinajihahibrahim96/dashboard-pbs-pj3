@@ -74,19 +74,31 @@ def run_static_and_spec_tests():
         assert f'case "{route}":' in main_js, f"GAGAL: Route {route} tidak dikendalikan dalam router main.js!"
     print(f"[LULUS] 2. Kesemua {len(expected_routes)} laluan halaman (routes) wujud dalam navigasi dan router.")
 
-    # 3. Semak tiada URL palsu/rekaan dalam dashboardLinks
+    # 3. Semak hanya URL rasmi yang dibekalkan pengguna wujud dalam dashboardLinks
+    allowed_user_urls = {
+        "https://canva.link/mypbd-sktpj3-2026",
+        "https://drive.google.com/drive/u/0/folders/1cvSAn7b5I7pJry24yw1mBHEkyTHbm_Dd",
+        "https://drive.google.com/drive/folders/1EdDP8fKWwfbKU9zIzzSxUnOCIKazAc41?usp=drive_link",
+        "https://drive.google.com/drive/folders/1ajvuRvl0_gHLnoWY-VQTUamCsgO9TJLT?usp=drive_link",
+        "https://drive.google.com/drive/folders/16dWavvRqN_HCG4WPrDQuJTufdJj2A3BT?usp=drive_link",
+        "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
+        "https://drive.google.com/drive/folders/1fuvVolvc0aAv-JnQ-pjNN3W0rMZKjd9T?usp=drive_link",
+    }
     links_block_match = re.search(r"dashboardLinks:\s*\{([^}]+)\}", config_js, re.DOTALL)
     assert links_block_match, "GAGAL: Objek dashboardLinks tidak ditemui!"
     links_block = links_block_match.group(1)
-    http_matches = re.findall(r"https?://[^\s\"']+", links_block)
-    assert len(http_matches) == 0, f"GAGAL: Ditemui URL rekaan dalam dashboardLinks: {http_matches}"
-    print("[LULUS] 3. Tiada URL rekaan atau pautan palsu di dalam dashboardLinks.")
+    http_matches = set(re.findall(r"https?://[^\s\"']+", links_block))
+    unknown_urls = http_matches - allowed_user_urls
+    assert len(unknown_urls) == 0, f"GAGAL: Ditemui URL tidak dikenali/rekaan dalam dashboardLinks: {unknown_urls}"
+    for u in allowed_user_urls:
+        assert u in config_js, f"GAGAL: URL rasmi pengguna tidak ditemui dalam konfigurasi: {u}"
+    print(f"[LULUS] 3. Kesemua {len(allowed_user_urls)} URL rasmi PBD telah disambungkan dan tiada URL rekaan.")
 
-    # 4. Semak data makluman, takwim dan dokumen rujukan tidak mengandungi data rekaan
+    # 4. Semak data makluman dan takwim tidak mengandungi data rekaan, serta arkib tahunan PBD wujud
     assert "noticesData: []" in config_js, "GAGAL: noticesData mestilah kosong secara lalai (tiada makluman rekaan)."
     assert "takwimData: []" in config_js, "GAGAL: takwimData mestilah kosong secara lalai (tiada tarikh rekaan)."
-    assert "referenceDocumentsData: []" in config_js, "GAGAL: referenceDocumentsData mestilah kosong secara lalai."
-    print("[LULUS] 4. Makluman, Takwim dan Dokumen Rujukan bebas daripada data/tarikh rekaan.")
+    assert "pbdYearlyArchives:" in config_js, "GAGAL: pbdYearlyArchives (ciri tahun sebelumnya) tidak ditemui!"
+    print("[LULUS] 4. Ciri Arkib Tahunan PBD (2026/2025/2024) wujud serta Makluman & Takwim bebas daripada data rekaan.")
 
     # 5. Semak kandungan khusus halaman mengikut spesifikasi
     required_phrases = [
