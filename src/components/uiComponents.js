@@ -86,6 +86,22 @@ window.PBS_UI = (function () {
       arrowBtn: "bg-[#081C52] text-white group-hover:bg-orange-600",
       pill: "bg-orange-100 text-orange-800 border-orange-200",
     },
+    pink: {
+      cardBg: "bg-gradient-to-br from-pink-50 via-white to-rose-100/70",
+      border: "border-pink-200 hover:border-pink-500",
+      badge: "bg-gradient-to-r from-pink-600 to-rose-600 text-white",
+      iconBox: "bg-pink-100 text-pink-700 border-pink-200",
+      arrowBtn: "bg-[#081C52] text-white group-hover:bg-pink-600",
+      pill: "bg-pink-100 text-pink-800 border-pink-200",
+    },
+    cyan: {
+      cardBg: "bg-gradient-to-br from-cyan-50 via-white to-sky-100/70",
+      border: "border-cyan-200 hover:border-cyan-500",
+      badge: "bg-gradient-to-r from-cyan-600 to-teal-600 text-white",
+      iconBox: "bg-cyan-100 text-cyan-700 border-cyan-200",
+      arrowBtn: "bg-[#081C52] text-white group-hover:bg-cyan-600",
+      pill: "bg-cyan-100 text-cyan-800 border-cyan-200",
+    },
   };
 
   function getTheme(name) {
