@@ -4,14 +4,6 @@
  * ============================================================================
  * Fail ini menguruskan semua pautan URL, dokumen rujukan, makluman terkini,
  * takwim pentaksiran, senarai semak filing dan indeks pengurusan dokumen.
- *
- * PANDUAN KEMAS KINI UNTUK PENYELARAS:
- * 1. Masukkan pautan URL sebenar di dalam tanda petikan "" pada nilai yang berkenaan.
- * 2. Biarkan nilai sebagai "" (kosong) jika pautan belum ditetapkan.
- *    Sistem akan memaparkan status "Pautan belum ditetapkan" secara automatik
- *    dan menyahaktifkan butang supaya tiada pautan palsu atau rosak.
- * 3. Jangan letakkan data peribadi murid, kertas soalan sulit atau skema
- *    pemarkahan terkawal pada pautan terbuka.
  * ============================================================================
  */
 
@@ -28,7 +20,7 @@ export interface QuickLinkItem {
 export interface NoticeItem {
   id: string;
   title: string;
-  date: string; // Tarikh yang telah disahkan sahaja
+  date: string;
   summary: string;
   category: string;
   url: string;
@@ -72,6 +64,19 @@ export interface DocumentIndexItem {
   url: string;
 }
 
+export interface PbdYearlyArchiveItem {
+  year: string;
+  label: string;
+  isCurrent: boolean;
+  dashboardUrl: string;
+  rekodTransitUrl: string;
+  analisisPbdUrl: string;
+  dialogPrestasiUrl: string;
+  dskpPanitiaUrl: string;
+  instrumenMutuUrl: string;
+  panduanPelaksanaanUrl: string;
+}
+
 export const schoolIdentity = {
   siteName: "Dashboard PBS PJ3",
   fullName: "Pusat Rujukan Pentaksiran Berasaskan Sekolah",
@@ -81,24 +86,22 @@ export const schoolIdentity = {
   slogan: "Kerja Sepasukan Pacu Kecemerlangan",
   introText:
     "Satu pusat rujukan untuk akses dokumen, instrumen, takwim dan pengurusan pentaksiran sekolah.",
-  // Nota Aset: Letakkan fail logo rasmi di public/images/logo-pj3.png.
-  // Jika dikosongkan ("") atau fail tiada, kotak "LOGO RASMI PJ3" akan dipaparkan.
   officialLogoPath: "public/images/logo-pj3.png",
   heroBannerPath: "public/images/school-hero.jpg",
   footerBannerPath: "public/images/footer-banner.jpg",
 };
 
-/**
- * PAUTAN UTAMA PORTAL & MODUL (Isi URL sebenar apabila telah disahkan)
- */
 export const dashboardLinks = {
   // 1. PBD (Pentaksiran Bilik Darjah)
-  PBD_DASHBOARD_URL: "",
-  pbdPanduanUrl: "",
-  pbdTemplatSekolahUrl: "",
-  pbdPelaporanUrl: "",
+  PBD_DASHBOARD_URL: "https://canva.link/mypbd-sktpj3-2026",
+  pbdPanduanUrl: "https://drive.google.com/drive/folders/1fuvVolvc0aAv-JnQ-pjNN3W0rMZKjd9T?usp=drive_link",
+  pbdTemplatSekolahUrl: "https://drive.google.com/drive/u/0/folders/1cvSAn7b5I7pJry24yw1mBHEkyTHbm_Dd",
+  pbdAnalisisUrl: "https://drive.google.com/drive/folders/1EdDP8fKWwfbKU9zIzzSxUnOCIKazAc41?usp=drive_link",
+  pbdPelaporanUrl: "https://drive.google.com/drive/folders/1ajvuRvl0_gHLnoWY-VQTUamCsgO9TJLT?usp=drive_link",
+  pbdDskpPanitiaUrl: "https://drive.google.com/drive/folders/16dWavvRqN_HCG4WPrDQuJTufdJj2A3BT?usp=drive_link",
+  pbdInstrumenMutuUrl: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
 
-  // 2. PAJSK (Pentaksiran Aktiviti Jasmani, Sukan & Kokurikulum)
+  // 2. PAJSK
   PAJSK_DASHBOARD_URL: "",
   pajskPanduanUrl: "",
   pajskBorangRekodUrl: "",
@@ -113,14 +116,14 @@ export const dashboardLinks = {
   matriksAnalisisPelaporanUrl: "",
   matriksDokumentasiSusulanUrl: "",
 
-  // 4. PPsi (Pentaksiran Psikometrik)
+  // 4. PPsi
   PPSI_PORTAL_URL: "",
   ppsiPanduanUrl: "",
   ppsiInstrumenUrl: "",
   ppsiDokumenSokonganUrl: "",
   ppsiMaklumanPelaksanaanUrl: "",
 
-  // 5. SEGAK & BMI 5–9 Tahun (Subbahagian Berasingan)
+  // 5. SEGAK & BMI 5–9 Tahun
   segakPanduanUrl: "",
   segakInstrumenBorangUrl: "",
   segakRekodAnalisisUrl: "",
@@ -131,16 +134,15 @@ export const dashboardLinks = {
   bmiAnalisisPelaporanUrl: "",
   bmiTindakanSusulanUrl: "",
 
-  // 6. Penjaminan Mutu PBS (6 Komponen)
-  mutuPemantauanUrl: "",
-  mutuPengesananUrl: "",
-  mutuPenyelarasanUrl: "",
-  mutuPementoranUrl: "",
-  mutuModerasiUrl: "",
+  // 6. Penjaminan Mutu PBS
+  mutuPemantauanUrl: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
+  mutuPengesananUrl: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
+  mutuPenyelarasanUrl: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
+  mutuPementoranUrl: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
+  mutuModerasiUrl: "https://drive.google.com/drive/folders/1ajvuRvl0_gHLnoWY-VQTUamCsgO9TJLT?usp=drive_link",
   mutuTindakanSusulanUrl: "",
 
-  // 7. Senarai Semak Filing (Muat Turun)
-  // Hanya aktifkan (true) apabila fail Excel sebenar telah diletakkan di public/docs/
+  // 7. Senarai Semak Filing
   filingCombinedExcelPath: "public/docs/Senarai_Semak_Filing_PBS_PBD_Matriks_PJ3.xlsx",
   filingCombinedExcelAvailable: false,
   filingPbsIndividualUrl: "",
@@ -151,150 +153,45 @@ export const dashboardLinks = {
   mainPbsDriveFolderUrl: "",
 };
 
-/**
- * PAUTAN PANTAS LAMAN UTAMA
- */
-export const quickLinks: QuickLinkItem[] = [
+export const pbdYearlyArchives: PbdYearlyArchiveItem[] = [
   {
-    id: "ql-pbd",
-    title: "Dashboard PBD",
-    subtitle: "Akses rekod & pelaporan PBD",
-    icon: "book-open-check",
-    colorTheme: "blue",
-    url: dashboardLinks.PBD_DASHBOARD_URL,
-    internalRoute: "/pbd",
+    year: "2026",
+    label: "Sesi Akademik 2026 (Semasa)",
+    isCurrent: true,
+    dashboardUrl: "https://canva.link/mypbd-sktpj3-2026",
+    rekodTransitUrl: "https://drive.google.com/drive/u/0/folders/1cvSAn7b5I7pJry24yw1mBHEkyTHbm_Dd",
+    analisisPbdUrl: "https://drive.google.com/drive/folders/1EdDP8fKWwfbKU9zIzzSxUnOCIKazAc41?usp=drive_link",
+    dialogPrestasiUrl: "https://drive.google.com/drive/folders/1ajvuRvl0_gHLnoWY-VQTUamCsgO9TJLT?usp=drive_link",
+    dskpPanitiaUrl: "https://drive.google.com/drive/folders/16dWavvRqN_HCG4WPrDQuJTufdJj2A3BT?usp=drive_link",
+    instrumenMutuUrl: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
+    panduanPelaksanaanUrl: "https://drive.google.com/drive/folders/1fuvVolvc0aAv-JnQ-pjNN3W0rMZKjd9T?usp=drive_link",
   },
   {
-    id: "ql-pajsk",
-    title: "Portal PAJSK",
-    subtitle: "Jasmani, sukan & kokurikulum",
-    icon: "trophy",
-    colorTheme: "emerald",
-    url: dashboardLinks.PAJSK_DASHBOARD_URL,
-    internalRoute: "/pajsk",
+    year: "2025",
+    label: "Arkib Sesi Akademik 2025",
+    isCurrent: false,
+    dashboardUrl: "",
+    rekodTransitUrl: "",
+    analisisPbdUrl: "",
+    dialogPrestasiUrl: "",
+    dskpPanitiaUrl: "https://drive.google.com/drive/folders/16dWavvRqN_HCG4WPrDQuJTufdJj2A3BT?usp=drive_link",
+    instrumenMutuUrl: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
+    panduanPelaksanaanUrl: "https://drive.google.com/drive/folders/1fuvVolvc0aAv-JnQ-pjNN3W0rMZKjd9T?usp=drive_link",
   },
   {
-    id: "ql-matriks",
-    title: "Matriks Tahun 4",
-    subtitle: "Pengurusan Matriks Pembelajaran",
-    icon: "layout-grid",
-    colorTheme: "amber",
-    url: dashboardLinks.MATRIKS_DASHBOARD_URL,
-    internalRoute: "/matriks",
-  },
-  {
-    id: "ql-mutu",
-    title: "Penjaminan Mutu",
-    subtitle: "Borang pemantauan & pementoran",
-    icon: "shield-check",
-    colorTheme: "purple",
-    internalRoute: "/penjaminan-mutu",
-  },
-  {
-    id: "ql-rujukan",
-    title: "Pusat Rujukan",
-    subtitle: "Panduan KPM, pekeliling & instrumen",
-    icon: "library",
-    colorTheme: "rose",
-    internalRoute: "/pusat-rujukan",
-  },
-  {
-    id: "ql-semak",
-    title: "Senarai Semak Filing",
-    subtitle: "Panduan fail PBS, PBD & Matriks",
-    icon: "clipboard-check",
-    colorTheme: "cyan",
-    internalRoute: "/senarai-semak",
+    year: "2024",
+    label: "Arkib Sesi Akademik 2024",
+    isCurrent: false,
+    dashboardUrl: "",
+    rekodTransitUrl: "",
+    analisisPbdUrl: "",
+    dialogPrestasiUrl: "",
+    dskpPanitiaUrl: "https://drive.google.com/drive/folders/16dWavvRqN_HCG4WPrDQuJTufdJj2A3BT?usp=drive_link",
+    instrumenMutuUrl: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
+    panduanPelaksanaanUrl: "https://drive.google.com/drive/folders/1fuvVolvc0aAv-JnQ-pjNN3W0rMZKjd9T?usp=drive_link",
   },
 ];
 
-/**
- * MAKLUMAN TERKINI
- * PENTING: Jangan masukkan makluman rekaan sebagai pengumuman sebenar.
- * Tambah objek ke dalam tatasusunan (array) di bawah apabila ada makluman rasmi.
- */
 export const noticesData: NoticeItem[] = [];
-
-/**
- * TAKWIM PENTAKSIRAN
- * PENTING: Semua tarikh mesti datang daripada data yang telah disahkan oleh penyelaras.
- * Jangan masukkan tarikh anggaran atau rekaan.
- */
 export const takwimData: TakwimItem[] = [];
-
-/**
- * DOKUMEN PUSAT RUJUKAN PBS
- * PENTING: Jangan reka tajuk pekeliling, tarikh edisi atau URL palsu.
- * Masukkan dokumen sebenar apabila URL/fail telah disahkan oleh penyelaras.
- */
 export const referenceDocumentsData: ReferenceDocumentItem[] = [];
-
-/**
- * INDEKS PENGURUSAN DOKUMEN & FOLDER DIGITAL
- * Rangka struktur fail standard PBS PJ3 (tanpa URL palsu).
- */
-export const documentManagementIndex: DocumentIndexItem[] = [
-  {
-    id: "doc-induk-pbs",
-    code: "FAIL 01",
-    category: "Pengurusan Induk PBS",
-    title: "Fail Induk Pengurusan Pentaksiran Berasaskan Sekolah (PBS)",
-    ownerUnit: "Setiausaha PBS",
-    accessNote: "Akses Terkawal Warga Sekolah",
-    url: "",
-  },
-  {
-    id: "doc-induk-pbd",
-    code: "FAIL 02",
-    category: "Pentaksiran Bilik Darjah (PBD)",
-    title: "Folder Pengurusan, Penyelarasan & Pelaporan PBD",
-    ownerUnit: "Penyelaras PBD",
-    accessNote: "Akses Guru & Pentadbir",
-    url: "",
-  },
-  {
-    id: "doc-matriks-t4",
-    code: "FAIL 03",
-    category: "Matriks Pembelajaran Tahun 4",
-    title: "Folder Pengurusan & Dokumentasi Matriks Pembelajaran Tahun 4",
-    ownerUnit: "Penyelaras Matriks Tahun 4",
-    accessNote: "Akses Terkawal (Tanpa Kertas Soalan/Skema Sulit)",
-    url: "",
-  },
-  {
-    id: "doc-pajsk",
-    code: "FAIL 04",
-    category: "PAJSK",
-    title: "Folder Panduan & Dokumentasi Pengurusan PAJSK",
-    ownerUnit: "Unit Kokurikulum / Penyelaras PAJSK",
-    accessNote: "Akses Guru Penasihat & Pentadbir",
-    url: "",
-  },
-  {
-    id: "doc-ppsi",
-    code: "FAIL 05",
-    category: "PPsi",
-    title: "Folder Rujukan & Pengurusan Pentaksiran Psikometrik (PPsi)",
-    ownerUnit: "Unit Bimbingan & Kaunseling",
-    accessNote: "Akses Terkawal GBK & Pentadbir",
-    url: "",
-  },
-  {
-    id: "doc-segak-bmi",
-    code: "FAIL 06",
-    category: "SEGAK & BMI 5–9 Tahun",
-    title: "Folder Asingan Rujukan SEGAK dan BMI 5–9 Tahun",
-    ownerUnit: "Panitia PJPK",
-    accessNote: "Akses Guru PJPK & Pentadbir",
-    url: "",
-  },
-  {
-    id: "doc-penjaminan-mutu",
-    code: "FAIL 07",
-    category: "Penjaminan Mutu PBS",
-    title: "Folder Instrumen Pemantauan, Pengesanan, Penyelarasan & Pementoran",
-    ownerUnit: "Jawatankuasa Penjaminan Mutu PBS",
-    accessNote: "Akses SLT, MLT & Penyelaras",
-    url: "",
-  },
-];
