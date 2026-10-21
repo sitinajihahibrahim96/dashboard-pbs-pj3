@@ -21,6 +21,7 @@
     refSearchQuery: "",
     refCategory: "SEMUA",
     pbdYear: "2026",
+    intervensiProgram: "Pemulihan",
   };
 
   function normalizeRoute(hashStr) {
@@ -131,6 +132,12 @@
       case "/segak-bmi":
         html = PAGES.renderSegakBmiPage(config);
         break;
+      case "/prasekolah":
+        html = PAGES.renderPrasekolahPage(config);
+        break;
+      case "/intervensi":
+        html = PAGES.renderIntervensiPage(config, state.intervensiProgram);
+        break;
       case "/takwim":
         html = PAGES.renderTakwimPage(config, state.takwimCategory);
         break;
@@ -174,6 +181,15 @@
     pbdYearBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
         state.pbdYear = btn.getAttribute("data-pbd-year") || "2026";
+        renderCurrentPage(false);
+      });
+    });
+
+    // 0B. Pemilih Submenu Program Intervensi (Pemulihan, PLaN, PiT, ARIF)
+    const intervensiTabBtns = document.querySelectorAll("[data-intervensi-tab]");
+    intervensiTabBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        state.intervensiProgram = btn.getAttribute("data-intervensi-tab") || "Pemulihan";
         renderCurrentPage(false);
       });
     });
