@@ -33,7 +33,7 @@ export interface TakwimItem {
   startDate: string;
   endDate?: string;
   description: string;
-  category: 'PBS' | 'PBD' | 'PAJSK' | 'Matriks Tahun 4' | 'PPsi' | 'SEGAK & BMI' | 'Penjaminan Mutu';
+  category: 'PBS' | 'PBD' | 'PAJSK' | 'Matriks Tahun 4' | 'PPsi' | 'SEGAK & BMI' | 'Prasekolah' | 'Intervensi' | 'Penjaminan Mutu';
   sourceUrl?: string;
 }
 
@@ -75,6 +75,8 @@ export interface PbdYearlyArchiveItem {
   dskpPanitiaUrl: string;
   instrumenMutuUrl: string;
   panduanPelaksanaanUrl: string;
+  oprUrl?: string;
+  storyboardUrl?: string;
 }
 
 export const schoolIdentity = {
@@ -100,56 +102,123 @@ export const dashboardLinks = {
   pbdPelaporanUrl: "https://drive.google.com/drive/folders/1ajvuRvl0_gHLnoWY-VQTUamCsgO9TJLT?usp=drive_link",
   pbdDskpPanitiaUrl: "https://drive.google.com/drive/folders/16dWavvRqN_HCG4WPrDQuJTufdJj2A3BT?usp=drive_link",
   pbdInstrumenMutuUrl: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
+  pbdOprUrl: "",
+  pbdStoryboardUrl: "",
 
   // 2. PAJSK
-  PAJSK_DASHBOARD_URL: "",
-  pajskPanduanUrl: "",
-  pajskBorangRekodUrl: "",
+  PAJSK_DASHBOARD_URL: "https://drive.google.com/drive/folders/17H3P_WTmtBS0HWY_EErVzCfQ8onjGbaz?usp=drive_link",
+  pajskPanduanUrl: "https://drive.google.com/drive/folders/10d35wjeyz2LKLvu5f_SEXiDrQv9MAeIk?usp=drive_link",
+  pajskBorangRekodUrl: "https://drive.google.com/drive/folders/1KR4rpXGViozoAnd1Mz2mwlpabM20tYy-?usp=drive_link",
+  pajskAnalisisUrl: "https://drive.google.com/drive/folders/17H3P_WTmtBS0HWY_EErVzCfQ8onjGbaz?usp=drive_link",
+  pajskOprUrl: "",
+  pajskStoryboardUrl: "",
 
   // 3. Matriks Pembelajaran Tahun 4
-  MATRIKS_DASHBOARD_URL: "",
-  matriksTakwimUrl: "",
-  matriksJawatankuasaUrl: "",
-  matriksPengurusanBahanUrl: "",
-  matriksPengawasanKehadiranUrl: "",
-  matriksPemeriksaanUrl: "",
-  matriksAnalisisPelaporanUrl: "",
-  matriksDokumentasiSusulanUrl: "",
+  MATRIKS_DASHBOARD_URL: "https://canva.link/dashboard-filing-matrik-tahun-4-2026",
+  matriksTarikhTakwimUrl: "https://drive.google.com/drive/folders/1BnIP7MTiumL7yY2nd5zr7wubOFSFqABa?usp=drive_link",
+  matriksTakwimUrl: "https://drive.google.com/drive/folders/1MJ7Z8or05K5wv46zrqMNowBZizWEpMUO?usp=drive_link",
+  matriksJawatankuasaUrl: "https://drive.google.com/drive/folders/1a3oEzpwKd8S1WyCXsBRs0Q1qDtS64gL7?usp=drive_link",
+  matriksPengurusanBahanUrl: "https://drive.google.com/drive/folders/1VX1uoZ84ENbBq2q2V5_LVlkmeP37DYs_?usp=drive_link",
+  matriksPengawasanKehadiranUrl: "https://drive.google.com/drive/folders/1SQIZgEILLv-Z5T0XRphpKTJ9odhkSyo2?usp=drive_link",
+  matriksPemeriksaanUrl: "https://drive.google.com/drive/folders/1uWN0O1mLqE6vIOWdq3JyQfEfb9MBNiXF?usp=drive_link",
+  matriksAnalisisPelaporanUrl: "https://drive.google.com/drive/folders/1QRHVIpsEsRE8McDkMtynEvCAo0nKKw8w?usp=drive_link",
+  matriksDokumentasiSusulanUrl: "https://drive.google.com/drive/folders/1zv4NYKmlC-ftWXqHM63ALwPzJdwwZdJu?usp=drive_link",
+  matriksSuratPekelilingUrl: "https://drive.google.com/drive/folders/1mI3BSEwLu1tkYH6bV6FTo2bbWLIhY4fr?usp=drive_link",
+  matriksOprUrl: "https://drive.google.com/drive/folders/1L4p0_6zJ0SYdcb2XlaMq3CxTeqHVz5Iv?usp=drive_link",
+  matriksStoryboardUrl: "https://drive.google.com/drive/folders/1zvYF7dcjJdhkujgdmm-JKtC5EQy7lTs5?usp=drive_link",
 
   // 4. PPsi
-  PPSI_PORTAL_URL: "",
-  ppsiPanduanUrl: "",
-  ppsiInstrumenUrl: "",
-  ppsiDokumenSokonganUrl: "",
-  ppsiMaklumanPelaksanaanUrl: "",
+  PPSI_PORTAL_URL: "https://drive.google.com/drive/folders/1JkX5nR_HrXR62oGIAGAQO1WO9Tq_1QGB?usp=drive_link",
+  ppsiPanduanUrl: "https://drive.google.com/drive/folders/1JkX5nR_HrXR62oGIAGAQO1WO9Tq_1QGB?usp=drive_link",
+  ppsiInstrumenUrl: "https://drive.google.com/drive/folders/1N0EcKPrmt_ghbr7LucbsvgSu3QCtLp1O?usp=drive_link",
+  ppsiDokumenSokonganUrl: "https://drive.google.com/drive/folders/1aoL17_Y9EamUDBGUCNPHDOfiSqBz9P0z?usp=drive_link",
+  ppsiMaklumanPelaksanaanUrl: "https://drive.google.com/drive/folders/1vhMnPgS_weiqJA3JzqYZzg23yadbyOgC?usp=drive_link",
+  ppsiOprUrl: "https://drive.google.com/drive/folders/14SQ5VR9gUH1ECFyfNE8eoCZX1iys6ATt?usp=drive_link",
+  ppsiStoryboardUrl: "https://drive.google.com/drive/folders/1xi-rhEO-4IjyH_QHGZu57IkiIZmlL5GI?usp=drive_link",
 
   // 5. SEGAK & BMI 5–9 Tahun
-  segakPanduanUrl: "",
-  segakInstrumenBorangUrl: "",
-  segakRekodAnalisisUrl: "",
-  segakTindakanSusulanUrl: "",
+  segakPanduanUrl: "https://drive.google.com/drive/folders/1rFWid-cTQyUOj4k57o5pK-ooOFYVn0T9?usp=drive_link",
+  segakInstrumenBorangUrl: "https://drive.google.com/drive/folders/1xVCb2REGlaCUlV1rDce3JeIwYfp5y_I2?usp=drive_link",
+  segakRekodAnalisisUrl: "https://drive.google.com/drive/folders/11RUZWRXCG3DmxZwQtPcdjq8JLEtqyTAf?usp=drive_link",
+  segakTindakanSusulanUrl: "https://drive.google.com/drive/folders/1tGEUKAsXTf2cbrHkK_pWjq9MyVs3zqOb?usp=drive_link",
+  segakOprUrl: "",
+  segakStoryboardUrl: "",
 
-  bmiPanduanRujukanUrl: "",
-  bmiRekodTemplatUrl: "",
-  bmiAnalisisPelaporanUrl: "",
-  bmiTindakanSusulanUrl: "",
+  bmiPanduanRujukanUrl: "https://drive.google.com/drive/folders/1i8ZLRieeg6Su7MXSux77JvW0DC-J5lC9?usp=drive_link",
+  bmiRekodTemplatUrl: "https://drive.google.com/drive/folders/1T3JXnTCNihjAl8S48DAGY9tZs3khNvn1?usp=drive_link",
+  bmiAnalisisPelaporanUrl: "https://drive.google.com/drive/folders/1-JIL9NihIellu7m6I_TWyAMrHAdUSI74?usp=drive_link",
+  bmiTindakanSusulanUrl: "https://drive.google.com/drive/folders/1wjE9XgFYyM3Nv108gozNoIIo15isi2fU?usp=drive_link",
+  bmiOprUrl: "",
+  bmiStoryboardUrl: "",
 
-  // 6. Penjaminan Mutu PBS
+  // 6. Analisis dan Pelaporan Prasekolah (Menu Utama Baharu 1)
+  PRASEKOLAH_DASHBOARD_URL: "",
+  prasekolahDataProfilUrl: "",
+  prasekolahPentaksiranPerkembanganUrl: "",
+  prasekolahAnalisisPelaporanUrl: "",
+  prasekolahIntervensiSokonganUrl: "",
+  prasekolahBuktiDokumentasiUrl: "",
+  prasekolahTindakanSusulanUrl: "",
+  prasekolahOprUrl: "",
+  prasekolahStoryboardUrl: "",
+
+  // 7. Intervensi dan Peningkatan Pembelajaran (Menu Utama Baharu 2: Pemulihan, PLaN, PiT, ARIF)
+  INTERVENSI_DASHBOARD_URL: "",
+  // 7A. Pemulihan
+  pemulihanDataAnalisisUrl: "",
+  pemulihanPerancanganUrl: "",
+  pemulihanBuktiPelaksanaanUrl: "",
+  pemulihanAnalisisImpakUrl: "",
+  pemulihanTindakanSusulanUrl: "",
+  pemulihanLaporanUrl: "",
+  pemulihanOprUrl: "",
+  pemulihanStoryboardUrl: "",
+  // 7B. PLaN
+  planDataAnalisisUrl: "",
+  planPerancanganUrl: "",
+  planBuktiPelaksanaanUrl: "",
+  planAnalisisImpakUrl: "",
+  planTindakanSusulanUrl: "",
+  planLaporanUrl: "",
+  planOprUrl: "",
+  planStoryboardUrl: "",
+  // 7C. PiT
+  pitDataAnalisisUrl: "",
+  pitPerancanganUrl: "",
+  pitBuktiPelaksanaanUrl: "",
+  pitAnalisisImpakUrl: "",
+  pitTindakanSusulanUrl: "",
+  pitLaporanUrl: "",
+  pitOprUrl: "",
+  pitStoryboardUrl: "",
+  // 7D. ARIF
+  arifDataAnalisisUrl: "",
+  arifPerancanganUrl: "",
+  arifBuktiPelaksanaanUrl: "",
+  arifAnalisisImpakUrl: "",
+  arifTindakanSusulanUrl: "",
+  arifLaporanUrl: "",
+  arifOprUrl: "",
+  arifStoryboardUrl: "",
+
+  // 8. Penjaminan Mutu PBS
   mutuPemantauanUrl: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
   mutuPengesananUrl: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
   mutuPenyelarasanUrl: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
   mutuPementoranUrl: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
   mutuModerasiUrl: "https://drive.google.com/drive/folders/1ajvuRvl0_gHLnoWY-VQTUamCsgO9TJLT?usp=drive_link",
   mutuTindakanSusulanUrl: "",
+  mutuOprUrl: "",
+  mutuStoryboardUrl: "",
 
-  // 7. Senarai Semak Filing
+  // 9. Senarai Semak Filing
   filingCombinedExcelPath: "public/docs/Senarai_Semak_Filing_PBS_PBD_Matriks_PJ3.xlsx",
   filingCombinedExcelAvailable: false,
   filingPbsIndividualUrl: "",
   filingPbdIndividualUrl: "",
   filingMatriksIndividualUrl: "",
 
-  // 8. Folder Digital Pengurusan Dokumen
+  // 10. Folder Digital Pengurusan Dokumen
   mainPbsDriveFolderUrl: "",
 };
 
@@ -165,6 +234,8 @@ export const pbdYearlyArchives: PbdYearlyArchiveItem[] = [
     dskpPanitiaUrl: "https://drive.google.com/drive/folders/16dWavvRqN_HCG4WPrDQuJTufdJj2A3BT?usp=drive_link",
     instrumenMutuUrl: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
     panduanPelaksanaanUrl: "https://drive.google.com/drive/folders/1fuvVolvc0aAv-JnQ-pjNN3W0rMZKjd9T?usp=drive_link",
+    oprUrl: "",
+    storyboardUrl: "",
   },
   {
     year: "2025",
@@ -177,6 +248,8 @@ export const pbdYearlyArchives: PbdYearlyArchiveItem[] = [
     dskpPanitiaUrl: "https://drive.google.com/drive/folders/16dWavvRqN_HCG4WPrDQuJTufdJj2A3BT?usp=drive_link",
     instrumenMutuUrl: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
     panduanPelaksanaanUrl: "https://drive.google.com/drive/folders/1fuvVolvc0aAv-JnQ-pjNN3W0rMZKjd9T?usp=drive_link",
+    oprUrl: "",
+    storyboardUrl: "",
   },
   {
     year: "2024",
@@ -189,6 +262,8 @@ export const pbdYearlyArchives: PbdYearlyArchiveItem[] = [
     dskpPanitiaUrl: "https://drive.google.com/drive/folders/16dWavvRqN_HCG4WPrDQuJTufdJj2A3BT?usp=drive_link",
     instrumenMutuUrl: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
     panduanPelaksanaanUrl: "https://drive.google.com/drive/folders/1fuvVolvc0aAv-JnQ-pjNN3W0rMZKjd9T?usp=drive_link",
+    oprUrl: "",
+    storyboardUrl: "",
   },
 ];
 
