@@ -20,6 +20,7 @@
     takwimCategory: "SEMUA",
     refSearchQuery: "",
     refCategory: "SEMUA",
+    pbdYear: "2026",
   };
 
   function normalizeRoute(hashStr) {
@@ -116,7 +117,7 @@
         html = PAGES.renderDashboardPbsPage(config);
         break;
       case "/pbd":
-        html = PAGES.renderPbdPage(config);
+        html = PAGES.renderPbdPage(config, state.pbdYear);
         break;
       case "/pajsk":
         html = PAGES.renderPajskPage(config);
@@ -168,6 +169,15 @@
   }
 
   function bindDynamicPageEvents() {
+    // 0. Pemilih Tahun Sesi Akademik / Arkib PBD
+    const pbdYearBtns = document.querySelectorAll("[data-pbd-year]");
+    pbdYearBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        state.pbdYear = btn.getAttribute("data-pbd-year") || "2026";
+        renderCurrentPage(false);
+      });
+    });
+
     // 1. Penapis Takwim Pentaksiran
     const takwimFilterBtns = document.querySelectorAll("[data-takwim-filter]");
     takwimFilterBtns.forEach((btn) => {
