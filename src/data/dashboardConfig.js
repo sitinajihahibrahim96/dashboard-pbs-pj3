@@ -36,7 +36,7 @@ window.DASHBOARD_PBS_CONFIG = {
    * PAUTAN UTAMA PORTAL & MODUL (Isi URL sebenar apabila telah disahkan)
    */
   dashboardLinks: {
-    // 1. PBD (Pentaksiran Bilik Darjah) — 2026 & Rujukan Utama
+    // 1. PBD (Pentaksiran Bilik Darjah) — 2026 & Rujukan Utama + OPR & Storyboard
     PBD_DASHBOARD_URL: "https://canva.link/mypbd-sktpj3-2026",
     pbdPanduanUrl: "https://drive.google.com/drive/folders/1fuvVolvc0aAv-JnQ-pjNN3W0rMZKjd9T?usp=drive_link",
     pbdTemplatSekolahUrl: "https://drive.google.com/drive/u/0/folders/1cvSAn7b5I7pJry24yw1mBHEkyTHbm_Dd",
@@ -44,49 +44,118 @@ window.DASHBOARD_PBS_CONFIG = {
     pbdPelaporanUrl: "https://drive.google.com/drive/folders/1ajvuRvl0_gHLnoWY-VQTUamCsgO9TJLT?usp=drive_link",
     pbdDskpPanitiaUrl: "https://drive.google.com/drive/folders/16dWavvRqN_HCG4WPrDQuJTufdJj2A3BT?usp=drive_link",
     pbdInstrumenMutuUrl: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
+    pbdOprUrl: "",
+    pbdStoryboardUrl: "",
 
-    // 2. PAJSK (Pentaksiran Aktiviti Jasmani, Sukan & Kokurikulum)
+    // 2. PAJSK (Pentaksiran Aktiviti Jasmani, Sukan & Kokurikulum) + OPR & Storyboard
     PAJSK_DASHBOARD_URL: "",
-    pajskPanduanUrl: "",
-    pajskBorangRekodUrl: "",
+    pajskPanduanUrl: "https://drive.google.com/drive/folders/10d35wjeyz2LKLvu5f_SEXiDrQv9MAeIk?usp=drive_link",
+    pajskBorangRekodUrl: "https://drive.google.com/drive/folders/1KR4rpXGViozoAnd1Mz2mwlpabM20tYy-?usp=drive_link",
+    pajskAnalisisUrl: "https://drive.google.com/drive/folders/17H3P_WTmtBS0HWY_EErVzCfQ8onjGbaz?usp=drive_link",
+    pajskOprUrl: "",
+    pajskStoryboardUrl: "",
 
-    // 3. Matriks Pembelajaran Tahun 4
-    MATRIKS_DASHBOARD_URL: "",
-    matriksTakwimUrl: "",
-    matriksJawatankuasaUrl: "",
-    matriksPengurusanBahanUrl: "",
-    matriksPengawasanKehadiranUrl: "",
-    matriksPemeriksaanUrl: "",
-    matriksAnalisisPelaporanUrl: "",
-    matriksDokumentasiSusulanUrl: "",
+    // 3. Matriks Pembelajaran Tahun 4 + Surat Pekeliling, OPR & Storyboard
+    MATRIKS_DASHBOARD_URL: "https://canva.link/dashboard-filing-matrik-tahun-4-2026",
+    matriksTarikhTakwimUrl: "https://drive.google.com/drive/folders/1BnIP7MTiumL7yY2nd5zr7wubOFSFqABa?usp=drive_link",
+    matriksTakwimUrl: "https://drive.google.com/drive/folders/1MJ7Z8or05K5wv46zrqMNowBZizWEpMUO?usp=drive_link",
+    matriksJawatankuasaUrl: "https://drive.google.com/drive/folders/1a3oEzpwKd8S1WyCXsBRs0Q1qDtS64gL7?usp=drive_link",
+    matriksPengurusanBahanUrl: "https://drive.google.com/drive/folders/1VX1uoZ84ENbBq2q2V5_LVlkmeP37DYs_?usp=drive_link",
+    matriksPengawasanKehadiranUrl: "https://drive.google.com/drive/folders/1SQIZgEILLv-Z5T0XRphpKTJ9odhkSyo2?usp=drive_link",
+    matriksPemeriksaanUrl: "https://drive.google.com/drive/folders/1uWN0O1mLqE6vIOWdq3JyQfEfb9MBNiXF?usp=drive_link",
+    matriksAnalisisPelaporanUrl: "https://drive.google.com/drive/folders/1QRHVIpsEsRE8McDkMtynEvCAo0nKKw8w?usp=drive_link",
+    matriksDokumentasiSusulanUrl: "https://drive.google.com/drive/folders/1zv4NYKmlC-ftWXqHM63ALwPzJdwwZdJu?usp=drive_link",
+    matriksSuratPekelilingUrl: "https://drive.google.com/drive/folders/1mI3BSEwLu1tkYH6bV6FTo2bbWLIhY4fr?usp=drive_link",
+    matriksOprUrl: "https://drive.google.com/drive/folders/1L4p0_6zJ0SYdcb2XlaMq3CxTeqHVz5Iv?usp=drive_link",
+    matriksStoryboardUrl: "https://drive.google.com/drive/folders/1zvYF7dcjJdhkujgdmm-JKtC5EQy7lTs5?usp=drive_link",
 
-    // 4. PPsi (Pentaksiran Psikometrik)
+    // 4. PPsi (Pentaksiran Psikometrik) + OPR & Storyboard
     PPSI_PORTAL_URL: "",
-    ppsiPanduanUrl: "",
-    ppsiInstrumenUrl: "",
-    ppsiDokumenSokonganUrl: "",
-    ppsiMaklumanPelaksanaanUrl: "",
+    ppsiPanduanUrl: "https://drive.google.com/drive/folders/1JkX5nR_HrXR62oGIAGAQO1WO9Tq_1QGB?usp=drive_link",
+    ppsiInstrumenUrl: "https://drive.google.com/drive/folders/1N0EcKPrmt_ghbr7LucbsvgSu3QCtLp1O?usp=drive_link",
+    ppsiDokumenSokonganUrl: "https://drive.google.com/drive/folders/1aoL17_Y9EamUDBGUCNPHDOfiSqBz9P0z?usp=drive_link",
+    ppsiMaklumanPelaksanaanUrl: "https://drive.google.com/drive/folders/1vhMnPgS_weiqJA3JzqYZzg23yadbyOgC?usp=drive_link",
+    ppsiOprUrl: "https://drive.google.com/drive/folders/14SQ5VR9gUH1ECFyfNE8eoCZX1iys6ATt?usp=drive_link",
+    ppsiStoryboardUrl: "https://drive.google.com/drive/folders/1xi-rhEO-4IjyH_QHGZu57IkiIZmlL5GI?usp=drive_link",
 
-    // 5. SEGAK & BMI 5–9 Tahun (Subbahagian Berasingan)
-    segakPanduanUrl: "",
-    segakInstrumenBorangUrl: "",
-    segakRekodAnalisisUrl: "",
-    segakTindakanSusulanUrl: "",
+    // 5. SEGAK & BMI 5–9 Tahun (Subbahagian Berasingan + OPR & Storyboard masing-masing)
+    segakPanduanUrl: "https://drive.google.com/drive/folders/1rFWid-cTQyUOj4k57o5pK-ooOFYVn0T9?usp=drive_link",
+    segakInstrumenBorangUrl: "https://drive.google.com/drive/folders/1xVCb2REGlaCUlV1rDce3JeIwYfp5y_I2?usp=drive_link",
+    segakRekodAnalisisUrl: "https://drive.google.com/drive/folders/11RUZWRXCG3DmxZwQtPcdjq8JLEtqyTAf?usp=drive_link",
+    segakTindakanSusulanUrl: "https://drive.google.com/drive/folders/1tGEUKAsXTf2cbrHkK_pWjq9MyVs3zqOb?usp=drive_link",
+    segakOprUrl: "",
+    segakStoryboardUrl: "",
 
-    bmiPanduanRujukanUrl: "",
-    bmiRekodTemplatUrl: "",
-    bmiAnalisisPelaporanUrl: "",
-    bmiTindakanSusulanUrl: "",
+    bmiPanduanRujukanUrl: "https://drive.google.com/drive/folders/1i8ZLRieeg6Su7MXSux77JvW0DC-J5lC9?usp=drive_link",
+    bmiRekodTemplatUrl: "https://drive.google.com/drive/folders/1T3JXnTCNihjAl8S48DAGY9tZs3khNvn1?usp=drive_link",
+    bmiAnalisisPelaporanUrl: "https://drive.google.com/drive/folders/1-JIL9NihIellu7m6I_TWyAMrHAdUSI74?usp=drive_link",
+    bmiTindakanSusulanUrl: "https://drive.google.com/drive/folders/1wjE9XgFYyM3Nv108gozNoIIo15isi2fU?usp=drive_link",
+    bmiOprUrl: "",
+    bmiStoryboardUrl: "",
 
-    // 6. Penjaminan Mutu PBS (6 Komponen)
+    // 6. Analisis dan Pelaporan Prasekolah (Menu Utama Baharu + 6 Submenu + OPR & Storyboard)
+    PRASEKOLAH_DASHBOARD_URL: "",
+    prasekolahDataProfilUrl: "",
+    prasekolahPentaksiranPerkembanganUrl: "",
+    prasekolahAnalisisPelaporanUrl: "",
+    prasekolahIntervensiSokonganUrl: "",
+    prasekolahBuktiDokumentasiUrl: "",
+    prasekolahTindakanSusulanUrl: "",
+    prasekolahOprUrl: "",
+    prasekolahStoryboardUrl: "",
+
+    // 7. Intervensi dan Peningkatan Pembelajaran (Menu Utama Baharu: Pemulihan, PLaN, PiT, ARIF + OPR & Storyboard)
+    // 7A. Pemulihan
+    pemulihanDataAnalisisUrl: "",
+    pemulihanPerancanganUrl: "",
+    pemulihanBuktiPelaksanaanUrl: "",
+    pemulihanAnalisisImpakUrl: "",
+    pemulihanTindakanSusulanUrl: "",
+    pemulihanLaporanUrl: "",
+    pemulihanOprUrl: "",
+    pemulihanStoryboardUrl: "",
+
+    // 7B. PLaN
+    planDataAnalisisUrl: "",
+    planPerancanganUrl: "",
+    planBuktiPelaksanaanUrl: "",
+    planAnalisisImpakUrl: "",
+    planTindakanSusulanUrl: "",
+    planLaporanUrl: "",
+    planOprUrl: "",
+    planStoryboardUrl: "",
+
+    // 7C. PiT
+    pitDataAnalisisUrl: "",
+    pitPerancanganUrl: "",
+    pitBuktiPelaksanaanUrl: "",
+    pitAnalisisImpakUrl: "",
+    pitTindakanSusulanUrl: "",
+    pitLaporanUrl: "",
+    pitOprUrl: "",
+    pitStoryboardUrl: "",
+
+    // 7D. ARIF
+    arifDataAnalisisUrl: "",
+    arifPerancanganUrl: "",
+    arifBuktiPelaksanaanUrl: "",
+    arifAnalisisImpakUrl: "",
+    arifTindakanSusulanUrl: "",
+    arifLaporanUrl: "",
+    arifOprUrl: "",
+    arifStoryboardUrl: "",
+
+    // 8. Penjaminan Mutu PBS (6 Komponen + OPR & Storyboard)
     mutuPemantauanUrl: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
     mutuPengesananUrl: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
     mutuPenyelarasanUrl: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
     mutuPementoranUrl: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
     mutuModerasiUrl: "https://drive.google.com/drive/folders/1ajvuRvl0_gHLnoWY-VQTUamCsgO9TJLT?usp=drive_link",
     mutuTindakanSusulanUrl: "",
+    mutuOprUrl: "",
+    mutuStoryboardUrl: "",
 
-    // 7. Senarai Semak Filing (Muat Turun)
+    // 9. Senarai Semak Filing (Muat Turun)
     // Hanya aktifkan (true) apabila fail Excel sebenar telah diletakkan di public/docs/
     filingCombinedExcelPath: "public/docs/Senarai_Semak_Filing_PBS_PBD_Matriks_PJ3.xlsx",
     filingCombinedExcelAvailable: false,
@@ -94,14 +163,13 @@ window.DASHBOARD_PBS_CONFIG = {
     filingPbdIndividualUrl: "",
     filingMatriksIndividualUrl: "",
 
-    // 8. Folder Digital Pengurusan Dokumen
+    // 10. Folder Digital Pengurusan Dokumen
     mainPbsDriveFolderUrl: "",
   },
 
   /**
    * PENGURUSAN PBD MENGIKUT SESI AKADEMIK / ARKIB TAHUN SEBELUMNYA
-   * Membolehkan guru menyemak Rekod Transit, Analisis PBD dan Dialog Prestasi
-   * mengikut tahun semasa (2026) serta arkib tahun-tahun sebelumnya (2025, 2024).
+   * Lengkap dengan One Page Report (OPR) & Storyboard
    */
   pbdYearlyArchives: [
     {
@@ -115,6 +183,8 @@ window.DASHBOARD_PBS_CONFIG = {
       dskpPanitiaUrl: "https://drive.google.com/drive/folders/16dWavvRqN_HCG4WPrDQuJTufdJj2A3BT?usp=drive_link",
       instrumenMutuUrl: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
       panduanPelaksanaanUrl: "https://drive.google.com/drive/folders/1fuvVolvc0aAv-JnQ-pjNN3W0rMZKjd9T?usp=drive_link",
+      oprUrl: "",
+      storyboardUrl: "",
     },
     {
       year: "2025",
@@ -127,6 +197,8 @@ window.DASHBOARD_PBS_CONFIG = {
       dskpPanitiaUrl: "https://drive.google.com/drive/folders/16dWavvRqN_HCG4WPrDQuJTufdJj2A3BT?usp=drive_link",
       instrumenMutuUrl: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
       panduanPelaksanaanUrl: "https://drive.google.com/drive/folders/1fuvVolvc0aAv-JnQ-pjNN3W0rMZKjd9T?usp=drive_link",
+      oprUrl: "",
+      storyboardUrl: "",
     },
     {
       year: "2024",
@@ -139,11 +211,13 @@ window.DASHBOARD_PBS_CONFIG = {
       dskpPanitiaUrl: "https://drive.google.com/drive/folders/16dWavvRqN_HCG4WPrDQuJTufdJj2A3BT?usp=drive_link",
       instrumenMutuUrl: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
       panduanPelaksanaanUrl: "https://drive.google.com/drive/folders/1fuvVolvc0aAv-JnQ-pjNN3W0rMZKjd9T?usp=drive_link",
+      oprUrl: "",
+      storyboardUrl: "",
     },
   ],
 
   /**
-   * 10 KAD MENU UTAMA (Mengikut jadual Seksyen 4.2 Spesifikasi)
+   * 12 KAD MENU UTAMA (10 Kad Asal + 2 Menu Utama Baharu: Prasekolah & Intervensi)
    */
   mainMenuCards: [
     {
@@ -166,7 +240,7 @@ window.DASHBOARD_PBS_CONFIG = {
       summary: "Pentaksiran aktiviti jasmani, sukan dan kokurikulum",
       actionLabel: "Buka Halaman & Pautan PAJSK",
       route: "/pajsk",
-      externalUrlKey: "PAJSK_DASHBOARD_URL",
+      externalUrlKey: "pajskPanduanUrl",
       icon: "trophy",
       theme: "emerald",
     },
@@ -190,7 +264,7 @@ window.DASHBOARD_PBS_CONFIG = {
       summary: "Pautan dan bahan rujukan berkaitan PPsi",
       actionLabel: "Buka Halaman PPsi",
       route: "/ppsi",
-      externalUrlKey: "PPSI_PORTAL_URL",
+      externalUrlKey: "ppsiPanduanUrl",
       icon: "brain-circuit",
       theme: "purple",
     },
@@ -202,11 +276,35 @@ window.DASHBOARD_PBS_CONFIG = {
       summary: "Halaman induk dengan subbahagian SEGAK dan BMI yang berasingan",
       actionLabel: "Buka Halaman Khusus",
       route: "/segak-bmi",
+      externalUrlKey: "segakPanduanUrl",
       icon: "activity",
       theme: "rose",
     },
     {
       id: "06",
+      key: "prasekolah",
+      title: "Analisis & Pelaporan Prasekolah",
+      fullTitle: "Analisis dan Pelaporan Prasekolah",
+      summary: "Data profil, pentaksiran perkembangan, analisis, intervensi & dokumentasi Prasekolah",
+      actionLabel: "Buka Halaman Prasekolah",
+      route: "/prasekolah",
+      externalUrlKey: "PRASEKOLAH_DASHBOARD_URL",
+      icon: "blocks",
+      theme: "sky",
+    },
+    {
+      id: "07",
+      key: "intervensi",
+      title: "Intervensi & Peningkatan Pembelajaran",
+      fullTitle: "Intervensi dan Peningkatan Pembelajaran",
+      summary: "Pengurusan program Pemulihan, PLaN, PiT dan ARIF",
+      actionLabel: "Buka Halaman Intervensi",
+      route: "/intervensi",
+      icon: "trending-up",
+      theme: "teal",
+    },
+    {
+      id: "08",
       key: "takwim",
       title: "Takwim Pentaksiran",
       fullTitle: "Takwim Pentaksiran",
@@ -217,18 +315,19 @@ window.DASHBOARD_PBS_CONFIG = {
       theme: "red",
     },
     {
-      id: "07",
+      id: "09",
       key: "penjaminan-mutu",
       title: "Penjaminan Mutu PBS",
       fullTitle: "Penjaminan Mutu PBS",
       summary: "Pemantauan, pengesanan, penyelarasan, pementoran dan moderasi",
       actionLabel: "Buka Penjaminan Mutu",
       route: "/penjaminan-mutu",
+      externalUrlKey: "mutuPemantauanUrl",
       icon: "shield-check",
       theme: "indigo",
     },
     {
-      id: "08",
+      id: "10",
       key: "pusat-rujukan",
       title: "Pusat Rujukan PBS",
       fullTitle: "Pusat Rujukan PBS",
@@ -236,10 +335,10 @@ window.DASHBOARD_PBS_CONFIG = {
       actionLabel: "Buka Pusat Rujukan",
       route: "/pusat-rujukan",
       icon: "library",
-      theme: "sky",
+      theme: "blue",
     },
     {
-      id: "09",
+      id: "11",
       key: "senarai-semak",
       title: "Senarai Semak Filing",
       fullTitle: "Senarai Semak Filing",
@@ -247,10 +346,10 @@ window.DASHBOARD_PBS_CONFIG = {
       actionLabel: "Buka Halaman Muat Turun",
       route: "/senarai-semak",
       icon: "clipboard-check",
-      theme: "teal",
+      theme: "emerald",
     },
     {
-      id: "10",
+      id: "12",
       key: "pengurusan-dokumen",
       title: "Pengurusan Dokumen",
       fullTitle: "Pengurusan Dokumen",
@@ -263,7 +362,7 @@ window.DASHBOARD_PBS_CONFIG = {
   ],
 
   /**
-   * 12 ITEM MENU NAVIGASI (Seksyen 4 Spesifikasi)
+   * 14 ITEM MENU NAVIGASI (12 Item Asal + 2 Menu Utama Baharu: Prasekolah & Intervensi)
    */
   navigationItems: [
     { label: "Laman Utama", route: "/", icon: "home" },
@@ -273,6 +372,8 @@ window.DASHBOARD_PBS_CONFIG = {
     { label: "Matriks Pembelajaran Tahun 4", route: "/matriks", icon: "layout-grid" },
     { label: "PPsi", route: "/ppsi", icon: "brain-circuit" },
     { label: "SEGAK & BMI 5–9 Tahun", route: "/segak-bmi", icon: "activity" },
+    { label: "Analisis & Pelaporan Prasekolah", route: "/prasekolah", icon: "blocks" },
+    { label: "Intervensi & Peningkatan Pembelajaran", route: "/intervensi", icon: "trending-up" },
     { label: "Takwim Pentaksiran", route: "/takwim", icon: "calendar-days" },
     { label: "Penjaminan Mutu PBS", route: "/penjaminan-mutu", icon: "shield-check" },
     { label: "Pusat Rujukan PBS", route: "/pusat-rujukan", icon: "library" },
@@ -294,9 +395,10 @@ window.DASHBOARD_PBS_CONFIG = {
 
   /**
    * DOKUMEN PUSAT RUJUKAN PBS
-   * Disambungkan dengan pautan Google Drive rasmi yang telah dibekalkan oleh pengguna.
+   * Disambungkan dengan semua pautan Google Drive rasmi yang telah dibekalkan oleh pengguna.
    */
   referenceDocumentsData: [
+    // PBD
     {
       id: "doc-panduan-pbd",
       title: "Folder Panduan Pelaksanaan Pentaksiran Bilik Darjah (PBD)",
@@ -350,6 +452,167 @@ window.DASHBOARD_PBS_CONFIG = {
       versionOrDate: "2026",
       ownerOrSource: "Unit Kurikulum & PBD SKTPJ3",
       url: "https://drive.google.com/drive/folders/1ajvuRvl0_gHLnoWY-VQTUamCsgO9TJLT?usp=drive_link",
+    },
+
+    // PAJSK
+    {
+      id: "doc-pajsk-panduan",
+      title: "Buku Panduan Pengurusan & Pentaksiran PAJSK",
+      category: "Panduan Pengurusan PBS",
+      summary: "Garis panduan rasmi pemarkahan kehadiran, jawatan, penglibatan dan pencapaian aktiviti kokurikulum PAJSK.",
+      versionOrDate: "Semasa",
+      ownerOrSource: "Unit Kokurikulum / PAJSK SKTPJ3",
+      url: "https://drive.google.com/drive/folders/10d35wjeyz2LKLvu5f_SEXiDrQv9MAeIk?usp=drive_link",
+    },
+    {
+      id: "doc-pajsk-borang",
+      title: "Borang Rumusan & Rekod Aktiviti PAJSK",
+      category: "Borang dan Instrumen",
+      summary: "Folder borang rumusan aktiviti kokurikulum, sukan/permainan, kelab/persatuan dan badan beruniform.",
+      versionOrDate: "2026",
+      ownerOrSource: "Unit Kokurikulum / PAJSK SKTPJ3",
+      url: "https://drive.google.com/drive/folders/1KR4rpXGViozoAnd1Mz2mwlpabM20tYy-?usp=drive_link",
+    },
+    {
+      id: "doc-pajsk-analisis",
+      title: "Folder Analisis & Pelaporan PAJSK",
+      category: "Templat Sekolah",
+      summary: "Rumusan data analisis penglibatan dan pencapaian murid dalam PAJSK.",
+      versionOrDate: "2026",
+      ownerOrSource: "Unit Kokurikulum / PAJSK SKTPJ3",
+      url: "https://drive.google.com/drive/folders/17H3P_WTmtBS0HWY_EErVzCfQ8onjGbaz?usp=drive_link",
+    },
+
+    // PSIKOMETRIK (PPsi)
+    {
+      id: "doc-ppsi-panduan",
+      title: "Panduan Pelaksanaan Pentaksiran Psikometrik (PPsi)",
+      category: "Panduan Pengurusan PBS",
+      summary: "Panduan pelaksanaan rasmi Pentaksiran Psikometrik mengikut arahan semasa.",
+      versionOrDate: "Semasa",
+      ownerOrSource: "Unit Bimbingan & Kaunseling SKTPJ3",
+      url: "https://drive.google.com/drive/folders/1JkX5nR_HrXR62oGIAGAQO1WO9Tq_1QGB?usp=drive_link",
+    },
+    {
+      id: "doc-ppsi-instrumen",
+      title: "Instrumen PPsi yang Dibenarkan",
+      category: "Borang dan Instrumen",
+      summary: "Folder instrumen rasmi Pentaksiran Psikometrik yang dibenarkan.",
+      versionOrDate: "Semasa",
+      ownerOrSource: "Unit Bimbingan & Kaunseling SKTPJ3",
+      url: "https://drive.google.com/drive/folders/1N0EcKPrmt_ghbr7LucbsvgSu3QCtLp1O?usp=drive_link",
+    },
+    {
+      id: "doc-ppsi-sokongan",
+      title: "Dokumen Sokongan PPsi",
+      category: "Dokumen Rujukan Tambahan",
+      summary: "Borang pengurusan dan dokumen sokongan pelaksanaan PPsi sekolah.",
+      versionOrDate: "2026",
+      ownerOrSource: "Unit Bimbingan & Kaunseling SKTPJ3",
+      url: "https://drive.google.com/drive/folders/1aoL17_Y9EamUDBGUCNPHDOfiSqBz9P0z?usp=drive_link",
+    },
+    {
+      id: "doc-ppsi-makluman",
+      title: "Makluman Pelaksanaan Semasa PPsi",
+      category: "Pekeliling / Surat Siaran",
+      summary: "Makluman pelaksanaan semasa dan surat siaran berkaitan Pentaksiran Psikometrik.",
+      versionOrDate: "2026",
+      ownerOrSource: "Unit Bimbingan & Kaunseling SKTPJ3",
+      url: "https://drive.google.com/drive/folders/1vhMnPgS_weiqJA3JzqYZzg23yadbyOgC?usp=drive_link",
+    },
+    {
+      id: "doc-ppsi-opr",
+      title: "One Page Report (OPR) PPsi",
+      category: "Templat Sekolah",
+      summary: "Koleksi laporan ringkas One Page Report (OPR) pelaksanaan Pentaksiran Psikometrik.",
+      versionOrDate: "2026",
+      ownerOrSource: "Unit Bimbingan & Kaunseling SKTPJ3",
+      url: "https://drive.google.com/drive/folders/14SQ5VR9gUH1ECFyfNE8eoCZX1iys6ATt?usp=drive_link",
+    },
+    {
+      id: "doc-ppsi-storyboard",
+      title: "Storyboard PPsi",
+      category: "Dokumen Rujukan Tambahan",
+      summary: "Folder papan cerita (Storyboard) dokumentasi aktiviti dan pelaksanaan PPsi.",
+      versionOrDate: "2026",
+      ownerOrSource: "Unit Bimbingan & Kaunseling SKTPJ3",
+      url: "https://drive.google.com/drive/folders/1xi-rhEO-4IjyH_QHGZu57IkiIZmlL5GI?usp=drive_link",
+    },
+
+    // MATRIKS PEMBELAJARAN TAHUN 4
+    {
+      id: "doc-matriks-pekeliling",
+      title: "Surat Pekeliling & Arahan Matriks Pembelajaran Tahun 4",
+      category: "Pekeliling / Surat Siaran",
+      summary: "Folder surat pekeliling dan arahan rasmi berkaitan pelaksanaan Matriks Pembelajaran Tahun 4.",
+      versionOrDate: "2026",
+      ownerOrSource: "Penyelaras Matriks Tahun 4 SKTPJ3",
+      url: "https://drive.google.com/drive/folders/1mI3BSEwLu1tkYH6bV6FTo2bbWLIhY4fr?usp=drive_link",
+    },
+    {
+      id: "doc-matriks-analisis",
+      title: "Data, Analisis dan Pelaporan Matriks Pembelajaran Tahun 4",
+      category: "Templat Sekolah",
+      summary: "Folder data, analisis pencapaian dan pelaporan Matriks Pembelajaran Tahun 4.",
+      versionOrDate: "2026",
+      ownerOrSource: "Penyelaras Matriks Tahun 4 SKTPJ3",
+      url: "https://drive.google.com/drive/folders/1QRHVIpsEsRE8McDkMtynEvCAo0nKKw8w?usp=drive_link",
+    },
+    {
+      id: "doc-matriks-opr",
+      title: "One Page Report (OPR) Matriks Pembelajaran Tahun 4",
+      category: "Templat Sekolah",
+      summary: "Folder laporan One Page Report (OPR) pengurusan dan pelaksanaan Matriks Pembelajaran Tahun 4.",
+      versionOrDate: "2026",
+      ownerOrSource: "Penyelaras Matriks Tahun 4 SKTPJ3",
+      url: "https://drive.google.com/drive/folders/1L4p0_6zJ0SYdcb2XlaMq3CxTeqHVz5Iv?usp=drive_link",
+    },
+    {
+      id: "doc-matriks-storyboard",
+      title: "Storyboard Matriks Pembelajaran Tahun 4",
+      category: "Dokumen Rujukan Tambahan",
+      summary: "Folder papan cerita (Storyboard) dokumentasi Matriks Pembelajaran Tahun 4.",
+      versionOrDate: "2026",
+      ownerOrSource: "Penyelaras Matriks Tahun 4 SKTPJ3",
+      url: "https://drive.google.com/drive/folders/1zvYF7dcjJdhkujgdmm-JKtC5EQy7lTs5?usp=drive_link",
+    },
+
+    // SEGAK & BMI 5-9 TAHUN
+    {
+      id: "doc-segak-panduan",
+      title: "Panduan Pelaksanaan SEGAK",
+      category: "Panduan Pengurusan PBS",
+      summary: "Garis panduan pelaksanaan ujian Standard Kecergasan Fizikal Kebangsaan (SEGAK).",
+      versionOrDate: "Semasa",
+      ownerOrSource: "Panitia PJPK SKTPJ3",
+      url: "https://drive.google.com/drive/folders/1rFWid-cTQyUOj4k57o5pK-ooOFYVn0T9?usp=drive_link",
+    },
+    {
+      id: "doc-segak-instrumen",
+      title: "Instrumen / Borang SEGAK",
+      category: "Borang dan Instrumen",
+      summary: "Folder instrumen dan borang perekodan ujian SEGAK sekolah.",
+      versionOrDate: "2026",
+      ownerOrSource: "Panitia PJPK SKTPJ3",
+      url: "https://drive.google.com/drive/folders/1xVCb2REGlaCUlV1rDce3JeIwYfp5y_I2?usp=drive_link",
+    },
+    {
+      id: "doc-bmi-panduan",
+      title: "Panduan dan Rujukan BMI 5–9 Tahun",
+      category: "Panduan Pengurusan PBS",
+      summary: "Panduan dan rujukan pelaksanaan ukuran Indeks Jisim Badan (BMI) 5–9 Tahun.",
+      versionOrDate: "Semasa",
+      ownerOrSource: "Panitia PJPK SKTPJ3",
+      url: "https://drive.google.com/drive/folders/1i8ZLRieeg6Su7MXSux77JvW0DC-J5lC9?usp=drive_link",
+    },
+    {
+      id: "doc-bmi-rekod",
+      title: "Rekod atau Templat BMI 5–9 Tahun",
+      category: "Templat Sekolah",
+      summary: "Folder rekod dan templat pengukuran BMI 5–9 Tahun.",
+      versionOrDate: "2026",
+      ownerOrSource: "Panitia PJPK SKTPJ3",
+      url: "https://drive.google.com/drive/folders/1T3JXnTCNihjAl8S48DAGY9tZs3khNvn1?usp=drive_link",
     },
   ],
 
@@ -479,28 +742,28 @@ window.DASHBOARD_PBS_CONFIG = {
       id: "doc-matriks-t4",
       code: "FAIL 03",
       category: "Matriks Pembelajaran Tahun 4",
-      title: "Folder Pengurusan & Dokumentasi Matriks Pembelajaran Tahun 4",
+      title: "Dashboard Filing & Pengurusan Matriks Pembelajaran Tahun 4 (2026)",
       ownerUnit: "Penyelaras Matriks Tahun 4",
       accessNote: "Akses Terkawal (Tanpa Kertas Soalan/Skema Sulit)",
-      url: "",
+      url: "https://canva.link/dashboard-filing-matrik-tahun-4-2026",
     },
     {
       id: "doc-pajsk",
       code: "FAIL 04",
       category: "PAJSK",
-      title: "Folder Panduan & Dokumentasi Pengurusan PAJSK",
+      title: "Folder Buku Panduan, Borang Rumusan & Analisis PAJSK",
       ownerUnit: "Unit Kokurikulum / Penyelaras PAJSK",
       accessNote: "Akses Guru Penasihat & Pentadbir",
-      url: "",
+      url: "https://drive.google.com/drive/folders/10d35wjeyz2LKLvu5f_SEXiDrQv9MAeIk?usp=drive_link",
     },
     {
       id: "doc-ppsi",
       code: "FAIL 05",
       category: "PPsi",
-      title: "Folder Rujukan & Pengurusan Pentaksiran Psikometrik (PPsi)",
+      title: "Folder Rujukan, Instrumen, OPR & Storyboard Pentaksiran Psikometrik (PPsi)",
       ownerUnit: "Unit Bimbingan & Kaunseling",
       accessNote: "Akses Terkawal GBK & Pentadbir",
-      url: "",
+      url: "https://drive.google.com/drive/folders/1JkX5nR_HrXR62oGIAGAQO1WO9Tq_1QGB?usp=drive_link",
     },
     {
       id: "doc-segak-bmi",
@@ -509,7 +772,7 @@ window.DASHBOARD_PBS_CONFIG = {
       title: "Folder Asingan Rujukan SEGAK dan BMI 5–9 Tahun",
       ownerUnit: "Panitia PJPK",
       accessNote: "Akses Guru PJPK & Pentadbir",
-      url: "",
+      url: "https://drive.google.com/drive/folders/1rFWid-cTQyUOj4k57o5pK-ooOFYVn0T9?usp=drive_link",
     },
     {
       id: "doc-penjaminan-mutu",
@@ -519,6 +782,24 @@ window.DASHBOARD_PBS_CONFIG = {
       ownerUnit: "Jawatankuasa Penjaminan Mutu PBS",
       accessNote: "Akses SLT, MLT & Penyelaras",
       url: "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
+    },
+    {
+      id: "doc-prasekolah-idx",
+      code: "FAIL 08",
+      category: "Analisis & Pelaporan Prasekolah",
+      title: "Folder Pengurusan, Pentaksiran, Analisis & Dokumentasi Prasekolah",
+      ownerUnit: "Unit Prasekolah",
+      accessNote: "Akses Guru Prasekolah & Pentadbir",
+      url: "",
+    },
+    {
+      id: "doc-intervensi-idx",
+      code: "FAIL 09",
+      category: "Intervensi & Peningkatan Pembelajaran",
+      title: "Folder Program Intervensi & Peningkatan Pembelajaran (Pemulihan, PLaN, PiT & ARIF)",
+      ownerUnit: "Jawatankuasa Intervensi / Kurikulum",
+      accessNote: "Akses Guru & Pentadbir",
+      url: "",
     },
   ],
 };
