@@ -63,6 +63,8 @@ def run_static_and_spec_tests():
         "/matriks",
         "/ppsi",
         "/segak-bmi",
+        "/prasekolah",
+        "/intervensi",
         "/takwim",
         "/penjaminan-mutu",
         "/pusat-rujukan",
@@ -76,6 +78,7 @@ def run_static_and_spec_tests():
 
     # 3. Semak hanya URL rasmi yang dibekalkan pengguna wujud dalam dashboardLinks
     allowed_user_urls = {
+        # PBD (7 pautan)
         "https://canva.link/mypbd-sktpj3-2026",
         "https://drive.google.com/drive/u/0/folders/1cvSAn7b5I7pJry24yw1mBHEkyTHbm_Dd",
         "https://drive.google.com/drive/folders/1EdDP8fKWwfbKU9zIzzSxUnOCIKazAc41?usp=drive_link",
@@ -83,6 +86,40 @@ def run_static_and_spec_tests():
         "https://drive.google.com/drive/folders/16dWavvRqN_HCG4WPrDQuJTufdJj2A3BT?usp=drive_link",
         "https://drive.google.com/drive/folders/1itJqLlhGJdiTGmkgarkJv-QhE5lAQoaB?usp=drive_link",
         "https://drive.google.com/drive/folders/1fuvVolvc0aAv-JnQ-pjNN3W0rMZKjd9T?usp=drive_link",
+        # PAJSK (3 pautan)
+        "https://drive.google.com/drive/folders/10d35wjeyz2LKLvu5f_SEXiDrQv9MAeIk?usp=drive_link",
+        "https://drive.google.com/drive/folders/1KR4rpXGViozoAnd1Mz2mwlpabM20tYy-?usp=drive_link",
+        "https://drive.google.com/drive/folders/17H3P_WTmtBS0HWY_EErVzCfQ8onjGbaz?usp=drive_link",
+        # PSIKOMETRIK / PPsi (6 pautan)
+        "https://drive.google.com/drive/folders/1aoL17_Y9EamUDBGUCNPHDOfiSqBz9P0z?usp=drive_link",
+        "https://drive.google.com/drive/folders/1N0EcKPrmt_ghbr7LucbsvgSu3QCtLp1O?usp=drive_link",
+        "https://drive.google.com/drive/folders/1vhMnPgS_weiqJA3JzqYZzg23yadbyOgC?usp=drive_link",
+        "https://drive.google.com/drive/folders/1JkX5nR_HrXR62oGIAGAQO1WO9Tq_1QGB?usp=drive_link",
+        "https://drive.google.com/drive/folders/14SQ5VR9gUH1ECFyfNE8eoCZX1iys6ATt?usp=drive_link",
+        "https://drive.google.com/drive/folders/1xi-rhEO-4IjyH_QHGZu57IkiIZmlL5GI?usp=drive_link",
+        # MATRIKS PEMBELAJARAN TAHUN 4 (11 pautan)
+        "https://canva.link/dashboard-filing-matrik-tahun-4-2026",
+        "https://drive.google.com/drive/folders/1BnIP7MTiumL7yY2nd5zr7wubOFSFqABa?usp=drive_link",
+        "https://drive.google.com/drive/folders/1MJ7Z8or05K5wv46zrqMNowBZizWEpMUO?usp=drive_link",
+        "https://drive.google.com/drive/folders/1a3oEzpwKd8S1WyCXsBRs0Q1qDtS64gL7?usp=drive_link",
+        "https://drive.google.com/drive/folders/1VX1uoZ84ENbBq2q2V5_LVlkmeP37DYs_?usp=drive_link",
+        "https://drive.google.com/drive/folders/1SQIZgEILLv-Z5T0XRphpKTJ9odhkSyo2?usp=drive_link",
+        "https://drive.google.com/drive/folders/1uWN0O1mLqE6vIOWdq3JyQfEfb9MBNiXF?usp=drive_link",
+        "https://drive.google.com/drive/folders/1QRHVIpsEsRE8McDkMtynEvCAo0nKKw8w?usp=drive_link",
+        "https://drive.google.com/drive/folders/1zv4NYKmlC-ftWXqHM63ALwPzJdwwZdJu?usp=drive_link",
+        "https://drive.google.com/drive/folders/1mI3BSEwLu1tkYH6bV6FTo2bbWLIhY4fr?usp=drive_link",
+        "https://drive.google.com/drive/folders/1L4p0_6zJ0SYdcb2XlaMq3CxTeqHVz5Iv?usp=drive_link",
+        "https://drive.google.com/drive/folders/1zvYF7dcjJdhkujgdmm-JKtC5EQy7lTs5?usp=drive_link",
+        # SEGAK (4 pautan)
+        "https://drive.google.com/drive/folders/1rFWid-cTQyUOj4k57o5pK-ooOFYVn0T9?usp=drive_link",
+        "https://drive.google.com/drive/folders/1xVCb2REGlaCUlV1rDce3JeIwYfp5y_I2?usp=drive_link",
+        "https://drive.google.com/drive/folders/11RUZWRXCG3DmxZwQtPcdjq8JLEtqyTAf?usp=drive_link",
+        "https://drive.google.com/drive/folders/1tGEUKAsXTf2cbrHkK_pWjq9MyVs3zqOb?usp=drive_link",
+        # BMI 5-9T (4 pautan)
+        "https://drive.google.com/drive/folders/1i8ZLRieeg6Su7MXSux77JvW0DC-J5lC9?usp=drive_link",
+        "https://drive.google.com/drive/folders/1T3JXnTCNihjAl8S48DAGY9tZs3khNvn1?usp=drive_link",
+        "https://drive.google.com/drive/folders/1-JIL9NihIellu7m6I_TWyAMrHAdUSI74?usp=drive_link",
+        "https://drive.google.com/drive/folders/1wjE9XgFYyM3Nv108gozNoIIo15isi2fU?usp=drive_link",
     }
     links_block_match = re.search(r"dashboardLinks:\s*\{([^}]+)\}", config_js, re.DOTALL)
     assert links_block_match, "GAGAL: Objek dashboardLinks tidak ditemui!"
@@ -92,7 +129,7 @@ def run_static_and_spec_tests():
     assert len(unknown_urls) == 0, f"GAGAL: Ditemui URL tidak dikenali/rekaan dalam dashboardLinks: {unknown_urls}"
     for u in allowed_user_urls:
         assert u in config_js, f"GAGAL: URL rasmi pengguna tidak ditemui dalam konfigurasi: {u}"
-    print(f"[LULUS] 3. Kesemua {len(allowed_user_urls)} URL rasmi PBD telah disambungkan dan tiada URL rekaan.")
+    print(f"[LULUS] 3. Kesemua {len(allowed_user_urls)} URL rasmi (PBD, PAJSK, PPsi, Matriks Tahun 4, SEGAK & BMI 5-9T) telah disambungkan dan tiada URL rekaan.")
 
     # 4. Semak data makluman dan takwim tidak mengandungi data rekaan, serta arkib tahunan PBD wujud
     assert "noticesData: []" in config_js, "GAGAL: noticesData mestilah kosong secara lalai (tiada makluman rekaan)."
@@ -122,6 +159,20 @@ def run_static_and_spec_tests():
         ("Senarai Semak Filing Matriks Pembelajaran Tahun 4", "Kad 3 Senarai Semak"),
         ("Fail belum dimuat naik", "Status apabila fail Excel belum dimuat naik"),
         ("LOGO RASMI PJ3", "Ruang fallback logo rasmi"),
+        ("Analisis dan Pelaporan Prasekolah", "Menu Utama Baharu 1: Prasekolah"),
+        ("Data dan Profil Murid", "Submenu 1 Prasekolah"),
+        ("Pentaksiran dan Perkembangan Murid", "Submenu 2 Prasekolah"),
+        ("Intervensi dan Sokongan Pembelajaran", "Submenu 4 Prasekolah"),
+        ("Bukti Pelaksanaan dan Dokumentasi", "Submenu 5 Prasekolah"),
+        ("Intervensi dan Peningkatan Pembelajaran", "Menu Utama Baharu 2: Intervensi"),
+        ("Pemulihan", "Submenu 1 Intervensi"),
+        ("PLaN", "Submenu 2 Intervensi"),
+        ("PiT", "Submenu 3 Intervensi"),
+        ("ARIF", "Submenu 4 Intervensi"),
+        ("Perancangan Intervensi", "Bahagian Perancangan Intervensi"),
+        ("Analisis Impak", "Bahagian Analisis Impak"),
+        ("One Page Report (OPR)", "Ruang OPR dalam semua komponen"),
+        ("Storyboard", "Ruang Storyboard dalam semua komponen"),
     ]
     combined_source = config_js + "\n" + pages_js + "\n" + index_html + "\n" + ui_js
     for phrase, desc in required_phrases:
