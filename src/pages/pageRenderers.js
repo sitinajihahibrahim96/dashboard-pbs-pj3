@@ -331,7 +331,7 @@ window.PBS_PAGES = (function () {
           </a>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
           ${cardsHtml}
         </div>
       </section>
@@ -443,6 +443,8 @@ window.PBS_PAGES = (function () {
           <div class="flex flex-wrap gap-2">
             <a href="#/pbd" class="px-3 py-1.5 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-800 text-xs font-bold border border-blue-200 transition">Halaman PBD</a>
             <a href="#/matriks" class="px-3 py-1.5 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-900 text-xs font-bold border border-amber-200 transition">Matriks Tahun 4</a>
+            <a href="#/prasekolah" class="px-3 py-1.5 rounded-lg bg-pink-50 hover:bg-pink-100 text-pink-800 text-xs font-bold border border-pink-200 transition">Prasekolah</a>
+            <a href="#/intervensi" class="px-3 py-1.5 rounded-lg bg-cyan-50 hover:bg-cyan-100 text-cyan-800 text-xs font-bold border border-cyan-200 transition">Intervensi</a>
           </div>
         </div>
 
@@ -487,7 +489,7 @@ window.PBS_PAGES = (function () {
       </div>
 
       <h2 class="text-xl font-black text-[#112455] uppercase mb-4">Semua Modul Dashboard PBS PJ3</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
         ${cardsHtml}
       </div>
     `;
@@ -606,6 +608,26 @@ window.PBS_PAGES = (function () {
         configKey: "pbdPanduanUrl",
         icon: "book-open-check",
         theme: "teal",
+      },
+      {
+        num: "07",
+        title: "One Page Report (OPR) PBD",
+        subtitle: `Sesi Akademik ${activeYearObj.year}`,
+        desc: "Folder koleksi One Page Report (OPR) pelaksanaan aktiviti, bengkel, dialog prestasi dan program PBD sekolah.",
+        url: activeYearObj.oprUrl || dashboardLinks.pbdOprUrl,
+        configKey: "pbdOprUrl",
+        icon: "file-text",
+        theme: "rose",
+      },
+      {
+        num: "08",
+        title: "Storyboard PBD",
+        subtitle: `Sesi Akademik ${activeYearObj.year}`,
+        desc: "Paparan visual storyboard perjalanan pelaksanaan, amalan terbaik dan pencapaian PBD SK Taman Permas Jaya 3.",
+        url: activeYearObj.storyboardUrl || dashboardLinks.pbdStoryboardUrl,
+        configKey: "pbdStoryboardUrl",
+        icon: "layout-panel-top",
+        theme: "orange",
       },
     ];
 
@@ -833,18 +855,39 @@ window.PBS_PAGES = (function () {
         </h3>
         <div class="space-y-3">
           ${UI.renderResourceSlotRow({
-            title: "Buku Panduan Pengurusan & Pentaksiran PAJSK Sekolah Rendah",
+            title: "1. Buku Panduan Pengurusan & Pentaksiran PAJSK Sekolah Rendah",
             description: "Garis panduan pemarkahan kehadiran, jawatan, penglibatan dan pencapaian aktiviti kokurikulum.",
             url: dashboardLinks.pajskPanduanUrl,
             configKey: "pajskPanduanUrl",
             emptyText: "Pautan PAJSK akan dikemas kini oleh penyelaras",
           })}
           ${UI.renderResourceSlotRow({
-            title: "Borang Rumusan & Rekod Aktiviti Kokurikulum",
+            title: "2. Borang Rumusan & Rekod Aktiviti Kokurikulum",
             description: "Templat borang kehadiran dan rekod penglibatan unit beruniform, kelab/persatuan serta sukan/permainan.",
             url: dashboardLinks.pajskBorangRekodUrl,
             configKey: "pajskBorangRekodUrl",
             emptyText: "Pautan PAJSK akan dikemas kini oleh penyelaras",
+          })}
+          ${UI.renderResourceSlotRow({
+            title: "3. Analisis & Pelaporan PAJSK",
+            description: "Folder data analisis markah, rumusan pencapaian kokurikulum dan pelaporan PAJSK murid.",
+            url: dashboardLinks.pajskAnalisisUrl,
+            configKey: "pajskAnalisisUrl",
+            emptyText: "Pautan PAJSK akan dikemas kini oleh penyelaras",
+          })}
+          ${UI.renderResourceSlotRow({
+            title: "4. One Page Report (OPR) PAJSK",
+            description: "Laporan ringkas bergambar (OPR) pelaksanaan aktiviti jasmani, sukan dan kokurikulum sekolah.",
+            url: dashboardLinks.pajskOprUrl,
+            configKey: "pajskOprUrl",
+            emptyText: "Pautan belum ditetapkan",
+          })}
+          ${UI.renderResourceSlotRow({
+            title: "5. Storyboard PAJSK",
+            description: "Dokumentasi storyboard bergambar dan sorotan pencapaian aktiviti PAJSK SK Taman Permas Jaya 3.",
+            url: dashboardLinks.pajskStoryboardUrl,
+            configKey: "pajskStoryboardUrl",
+            emptyText: "Pautan belum ditetapkan",
           })}
         </div>
       </div>
@@ -923,6 +966,30 @@ window.PBS_PAGES = (function () {
         key: "matriksDokumentasiSusulanUrl",
         icon: "file-check-2",
       },
+      {
+        num: "08",
+        title: "Surat Pekeliling & Siaran Rasmi",
+        desc: "Koleksi surat pekeliling ikhtisas, surat siaran KPM/JPN/PPD dan arahan pentadbiran berkaitan Matriks Pembelajaran Tahun 4.",
+        url: dashboardLinks.matriksSuratPekelilingUrl,
+        key: "matriksSuratPekelilingUrl",
+        icon: "scroll-text",
+      },
+      {
+        num: "09",
+        title: "One Page Report (OPR) Matriks Tahun 4",
+        desc: "Laporan ringkas satu muka surat (OPR) pelaksanaan taklimat, penyelarasan, pentadbiran dan pascanilai Matriks Tahun 4.",
+        url: dashboardLinks.matriksOprUrl,
+        key: "matriksOprUrl",
+        icon: "file-text",
+      },
+      {
+        num: "10",
+        title: "Storyboard Matriks Tahun 4",
+        desc: "Dokumentasi visual storyboard aliran kerja dan pelaksanaan Matriks Pembelajaran Tahun 4 SK Taman Permas Jaya 3.",
+        url: dashboardLinks.matriksStoryboardUrl,
+        key: "matriksStoryboardUrl",
+        icon: "layout-panel-top",
+      },
     ];
 
     return `
@@ -970,10 +1037,19 @@ window.PBS_PAGES = (function () {
 
       <!-- Takwim Disahkan Matriks Tahun 4 -->
       <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-xs mb-8">
-        <h3 class="text-base sm:text-lg font-black text-[#112455] uppercase mb-3 flex items-center gap-2">
-          <i data-lucide="calendar-days" class="w-5 h-5 text-amber-600"></i>
-          <span>Tarikh & Takwim Ujian Matriks Tahun 4 (Disahkan Sahaja)</span>
-        </h3>
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+          <h3 class="text-base sm:text-lg font-black text-[#112455] uppercase flex items-center gap-2">
+            <i data-lucide="calendar-days" class="w-5 h-5 text-amber-600"></i>
+            <span>Tarikh & Takwim Ujian Matriks Tahun 4</span>
+          </h3>
+          ${UI.renderExternalActionButton({
+            url: dashboardLinks.matriksTarikhTakwimUrl,
+            label: "Buka Folder Tarikh & Takwim",
+            emptyLabel: "Pautan belum ditetapkan",
+            configKeyHint: "matriksTarikhTakwimUrl",
+            size: "md",
+          })}
+        </div>
         ${
           matriksTakwim.length > 0
             ? `<div class="space-y-2.5">
@@ -1102,10 +1178,24 @@ window.PBS_PAGES = (function () {
           emptyText: "Pautan belum ditetapkan",
         })}
         ${UI.renderResourceSlotRow({
-          title: "Makluman Pelaksanaan Semasa",
+          title: "4. Makluman Pelaksanaan Semasa",
           description: "Surat siaran, jadual pelaksanaan yang disahkan dan makluman semasa berkaitan PPsi.",
           url: dashboardLinks.ppsiMaklumanPelaksanaanUrl,
           configKey: "ppsiMaklumanPelaksanaanUrl",
+          emptyText: "Pautan belum ditetapkan",
+        })}
+        ${UI.renderResourceSlotRow({
+          title: "5. One Page Report (OPR) PPsi",
+          description: "Laporan ringkas satu muka surat (OPR) pelaksanaan aktiviti dan pentaksiran psikometrik sekolah.",
+          url: dashboardLinks.ppsiOprUrl,
+          configKey: "ppsiOprUrl",
+          emptyText: "Pautan belum ditetapkan",
+        })}
+        ${UI.renderResourceSlotRow({
+          title: "6. Storyboard PPsi",
+          description: "Dokumentasi visual storyboard pelaksanaan Pentaksiran Psikometrik (PPsi) SK Taman Permas Jaya 3.",
+          url: dashboardLinks.ppsiStoryboardUrl,
+          configKey: "ppsiStoryboardUrl",
           emptyText: "Pautan belum ditetapkan",
         })}
       </div>
@@ -1184,6 +1274,18 @@ window.PBS_PAGES = (function () {
                 url: dashboardLinks.segakTindakanSusulanUrl,
                 configKey: "segakTindakanSusulanUrl",
               })}
+              ${UI.renderResourceSlotRow({
+                title: "5. One Page Report (OPR) SEGAK",
+                description: "Laporan ringkas satu muka surat (OPR) pelaksanaan ujian kecergasan fizikal SEGAK.",
+                url: dashboardLinks.segakOprUrl,
+                configKey: "segakOprUrl",
+              })}
+              ${UI.renderResourceSlotRow({
+                title: "6. Storyboard SEGAK",
+                description: "Dokumentasi visual storyboard pelaksanaan ujian SEGAK SK Taman Permas Jaya 3.",
+                url: dashboardLinks.segakStoryboardUrl,
+                configKey: "segakStoryboardUrl",
+              })}
             </div>
           </div>
         </section>
@@ -1233,6 +1335,18 @@ window.PBS_PAGES = (function () {
                 description: "Catatan intervensi dan program gaya hidup sihat berdasarkan dapatan sekolah.",
                 url: dashboardLinks.bmiTindakanSusulanUrl,
                 configKey: "bmiTindakanSusulanUrl",
+              })}
+              ${UI.renderResourceSlotRow({
+                title: "5. One Page Report (OPR) BMI 5–9 Tahun",
+                description: "Laporan ringkas satu muka surat (OPR) pelaksanaan pengukuran dan program BMI 5–9 Tahun.",
+                url: dashboardLinks.bmiOprUrl,
+                configKey: "bmiOprUrl",
+              })}
+              ${UI.renderResourceSlotRow({
+                title: "6. Storyboard BMI 5–9 Tahun",
+                description: "Dokumentasi visual storyboard pelaksanaan pengukuran dan intervensi BMI 5–9 Tahun.",
+                url: dashboardLinks.bmiStoryboardUrl,
+                configKey: "bmiStoryboardUrl",
               })}
             </div>
           </div>
@@ -1415,6 +1529,26 @@ window.PBS_PAGES = (function () {
         key: "mutuTindakanSusulanUrl",
         icon: "clipboard-check",
         theme: "rose",
+      },
+      {
+        num: "07",
+        title: "One Page Report (OPR) Penjaminan Mutu",
+        subtitle: "Laporan ringkas satu muka surat aktiviti penjaminan mutu",
+        desc: "Koleksi One Page Report (OPR) pelaksanaan aktiviti pemantauan, pengesanan, penyelarasan dan pementoran PBS.",
+        url: dashboardLinks.mutuOprUrl,
+        key: "mutuOprUrl",
+        icon: "file-text",
+        theme: "teal",
+      },
+      {
+        num: "08",
+        title: "Storyboard Penjaminan Mutu",
+        subtitle: "Dokumentasi visual perjalanan penjaminan mutu PBS",
+        desc: "Paparan visual storyboard pelaksanaan penjaminan mutu dan pembudayaan kualiti pentaksiran sekolah.",
+        url: dashboardLinks.mutuStoryboardUrl,
+        key: "mutuStoryboardUrl",
+        icon: "layout-panel-top",
+        theme: "orange",
       },
     ];
 
@@ -1896,7 +2030,513 @@ window.PBS_PAGES = (function () {
   }
 
   /**
-   * 13. HALAMAN 404 — HALAMAN TIDAK DITEMUI
+   * 13. HALAMAN ANALISIS DAN PELAPORAN PRASEKOLAH (/prasekolah)
+   * Menu utama berdiri sendiri (bukan di bawah Intervensi dan Peningkatan Pembelajaran)
+   * Mengandungi 6 submenu wajib + OPR & Storyboard + Pautan Silang ke Menu Intervensi
+   */
+  function renderPrasekolahPage(config) {
+    const { dashboardLinks } = config;
+    const submenus = [
+      {
+        num: "01",
+        title: "Data dan Profil Murid",
+        subtitle: "Pengurusan Maklumat & Profil Murid Prasekolah",
+        desc: "Pengurusan data asas, profil murid dan maklumat kelas prasekolah mengikut ketetapan semasa tanpa memaparkan data peribadi sulit secara terbuka.",
+        url: dashboardLinks.prasekolahDataProfilUrl,
+        key: "prasekolahDataProfilUrl",
+        icon: "users",
+        theme: "pink",
+      },
+      {
+        num: "02",
+        title: "Pentaksiran dan Perkembangan Murid",
+        subtitle: "Rekod Pemerhatian & Perkembangan Holistik",
+        desc: "Perekodan pentaksiran berterusan dan perkembangan murid prasekolah merangkumi tunjang pembelajaran serta panduan semasa yang berkaitan.",
+        url: dashboardLinks.prasekolahPentaksiranPerkembanganUrl,
+        key: "prasekolahPentaksiranPerkembanganUrl",
+        icon: "sparkles",
+        theme: "purple",
+      },
+      {
+        num: "03",
+        title: "Analisis dan Pelaporan",
+        subtitle: "Rumusan Penguasaan & Pelaporan Perkembangan",
+        desc: "Analisis tahap perkembangan murid prasekolah dan penyediaan pelaporan berkala untuk rujukan sekolah serta ibu bapa / penjaga.",
+        url: dashboardLinks.prasekolahAnalisisPelaporanUrl,
+        key: "prasekolahAnalisisPelaporanUrl",
+        icon: "bar-chart-3",
+        theme: "blue",
+      },
+      {
+        num: "04",
+        title: "Intervensi dan Sokongan Pembelajaran",
+        subtitle: "Bimbingan Fokus & Sokongan Awal Prasekolah",
+        desc: "Perancangan dan pelaksanaan intervensi khusus prasekolah serta sokongan pembelajaran awal mengikut keperluan perkembangan murid.",
+        url: dashboardLinks.prasekolahIntervensiSokonganUrl,
+        key: "prasekolahIntervensiSokonganUrl",
+        icon: "heart-handshake",
+        theme: "emerald",
+        crossLinkRoute: "/intervensi",
+        crossLinkLabel: "Rujuk Menu Intervensi & Peningkatan Pembelajaran",
+      },
+      {
+        num: "05",
+        title: "Bukti Pelaksanaan dan Dokumentasi",
+        subtitle: "Evidens Aktiviti, Portfolio & Hasil Kerja",
+        desc: "Pengumpulan bukti pelaksanaan pentaksiran, portfolio perkembangan murid dan dokumentasi aktiviti pembelajaran prasekolah.",
+        url: dashboardLinks.prasekolahBuktiDokumentasiUrl,
+        key: "prasekolahBuktiDokumentasiUrl",
+        icon: "folder-check",
+        theme: "amber",
+      },
+      {
+        num: "06",
+        title: "Tindakan Susulan",
+        subtitle: "Penambahbaikan PdP & Kesediaan Ke Tahun 1",
+        desc: "Rekod tindakan susulan guru prasekolah, perbincangan bersama ibu bapa dan pelan transisi kesediaan murid ke Tahun 1.",
+        url: dashboardLinks.prasekolahTindakanSusulanUrl,
+        key: "prasekolahTindakanSusulanUrl",
+        icon: "refresh-cw",
+        theme: "teal",
+      },
+      {
+        num: "07",
+        title: "One Page Report (OPR) Prasekolah",
+        subtitle: "Laporan Ringkas Satu Muka Surat",
+        desc: "Koleksi One Page Report (OPR) program, aktiviti pentaksiran dan intervensi prasekolah SK Taman Permas Jaya 3.",
+        url: dashboardLinks.prasekolahOprUrl,
+        key: "prasekolahOprUrl",
+        icon: "file-text",
+        theme: "rose",
+      },
+      {
+        num: "08",
+        title: "Storyboard Prasekolah",
+        subtitle: "Dokumentasi Visual & Amalan Terbaik",
+        desc: "Paparan visual storyboard pelaksanaan pentaksiran dan perkembangan murid prasekolah sepanjang sesi akademik.",
+        url: dashboardLinks.prasekolahStoryboardUrl,
+        key: "prasekolahStoryboardUrl",
+        icon: "layout-panel-top",
+        theme: "indigo",
+      },
+    ];
+
+    return `
+      ${UI.renderPageHeader({
+        badge: "Modul 06 • Prasekolah",
+        title: "Analisis dan Pelaporan Prasekolah",
+        subtitle:
+          "Menu utama khusus bagi pengurusan data profil, pentaksiran perkembangan murid, analisis pelaporan, intervensi sokongan pembelajaran, dokumentasi dan tindakan susulan Prasekolah.",
+        icon: "blocks",
+      })}
+
+      <!-- Makluman Pengurusan Khusus Prasekolah & Pautan Silang -->
+      <div class="mb-8 p-5 rounded-2xl bg-pink-50 border-l-4 border-pink-600 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div class="flex items-start gap-3.5">
+          <i data-lucide="info" class="w-5 h-5 text-pink-700 shrink-0 mt-0.5"></i>
+          <div class="text-xs sm:text-sm text-[#112455] leading-relaxed">
+            <strong class="font-extrabold">Pengurusan & Pentaksiran Khusus Prasekolah:</strong>
+            Bahagian ini berdiri sendiri bagi mengambil kira keperluan pentaksiran perkembangan prasekolah mengikut garis panduan semasa.
+            <strong>Intervensi Prasekolah</strong> dikekalkan di bawah menu ini dengan pautan silang ke menu <em>Intervensi dan Peningkatan Pembelajaran</em> tanpa menggandakan dokumen.
+          </div>
+        </div>
+        <a
+          href="#/intervensi"
+          class="shrink-0 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-pink-100 text-pink-900 border border-pink-300 text-xs font-extrabold shadow-xs transition"
+        >
+          <i data-lucide="trending-up" class="w-4 h-4 text-pink-700"></i>
+          <span>Ke Menu Intervensi Sekolah</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
+      <!-- Pautan Utama Dashboard / Folder Induk Prasekolah -->
+      <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm mb-8">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div class="max-w-2xl">
+            <span class="px-2.5 py-1 rounded-md bg-pink-100 text-pink-800 text-xs font-extrabold uppercase">Pautan Utama Prasekolah</span>
+            <h2 class="text-xl sm:text-2xl font-black text-[#112455] mt-2">
+              Dashboard / Folder Induk Pentaksiran Prasekolah
+            </h2>
+            <p class="text-xs sm:text-sm text-[#5A688C] mt-1.5 leading-relaxed">
+              Akses terus ke folder atau sistem pengurusan pentaksiran dan pelaporan perkembangan murid Prasekolah SK Taman Permas Jaya 3.
+            </p>
+          </div>
+          <div class="shrink-0">
+            ${UI.renderExternalActionButton({
+              url: dashboardLinks.PRASEKOLAH_DASHBOARD_URL,
+              label: "Buka Pautan Utama Prasekolah",
+              emptyLabel: "Pautan belum ditetapkan",
+              configKeyHint: "PRASEKOLAH_DASHBOARD_URL",
+              size: "lg",
+            })}
+          </div>
+        </div>
+      </div>
+
+      <!-- Grid 6 Submenu Utama Prasekolah + OPR & Storyboard -->
+      <div>
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+          <h3 class="text-lg sm:text-xl font-black text-[#112455] uppercase flex items-center gap-2">
+            <i data-lucide="layout-grid" class="w-5 h-5 text-[#174EA6]"></i>
+            <span>Submenu Pengurusan, Pentaksiran & Pelaporan Prasekolah</span>
+          </h3>
+          <span class="text-xs font-bold text-[#5A688C]">6 Submenu Utama + OPR & Storyboard</span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          ${submenus
+            .map((sm) => {
+              const t = UI.getTheme(sm.theme);
+              return `
+                <section class="bg-white rounded-2xl p-6 border-2 ${t.border} shadow-sm flex flex-col justify-between gap-5">
+                  <div>
+                    <div class="flex items-center justify-between gap-2 mb-3">
+                      <span class="px-3 py-1 rounded-lg text-xs font-black ${t.badge}">${sm.num}</span>
+                      <div class="w-10 h-10 rounded-xl ${t.iconBox} border flex items-center justify-center">
+                        <i data-lucide="${sm.icon}" class="w-5 h-5"></i>
+                      </div>
+                    </div>
+                    <h4 class="text-base sm:text-lg font-black text-[#112455] uppercase">${UI.escapeHtml(sm.title)}</h4>
+                    <p class="text-xs font-bold text-[#174EA6] mt-0.5">${UI.escapeHtml(sm.subtitle)}</p>
+                    <p class="text-xs text-[#5A688C] mt-2 leading-relaxed">${UI.escapeHtml(sm.desc)}</p>
+                  </div>
+
+                  <div class="pt-3 border-t border-slate-100 space-y-2.5">
+                    ${UI.renderExternalActionButton({
+                      url: sm.url,
+                      label: `Buka ${sm.title}`,
+                      emptyLabel: "Pautan belum ditetapkan",
+                      configKeyHint: sm.key,
+                      size: "md",
+                    })}
+                    ${
+                      sm.crossLinkRoute
+                        ? `<a
+                            href="#${UI.escapeHtml(sm.crossLinkRoute)}"
+                            class="w-full inline-flex items-center justify-center gap-1.5 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-blue-50 text-[#174EA6] border border-slate-200 text-xs font-extrabold transition"
+                          >
+                            <i data-lucide="link-2" class="w-3.5 h-3.5"></i>
+                            <span>${UI.escapeHtml(sm.crossLinkLabel)}</span>
+                          </a>`
+                        : ""
+                    }
+                  </div>
+                </section>
+              `;
+            })
+            .join("")}
+        </div>
+      </div>
+    `;
+  }
+
+  /**
+   * 14. HALAMAN INTERVENSI DAN PENINGKATAN PEMBELAJARAN (/intervensi)
+   * Menu utama khusus yang mengandungi 4 submenu program:
+   * - Pemulihan
+   * - PLaN
+   * - PiT (tanpa mereka-reka maksud singkatan PiT)
+   * - ARIF (tanpa mereka-reka maksud singkatan ARIF)
+   * Setiap program mempunyai 6 bahagian wajib + OPR & Storyboard.
+   */
+  function renderIntervensiPage(config, selectedProgram = "Pemulihan") {
+    const { dashboardLinks } = config;
+
+    const programs = [
+      {
+        id: "Pemulihan",
+        label: "Pemulihan",
+        badge: "Submenu 01",
+        icon: "heart-handshake",
+        theme: "cyan",
+        description:
+          "Pengurusan data, perancangan intervensi, bukti pelaksanaan, analisis impak, tindakan susulan dan pelaporan bagi Program Pemulihan.",
+        prefix: "pemulihan",
+      },
+      {
+        id: "PLaN",
+        label: "PLaN",
+        badge: "Submenu 02",
+        icon: "book-open-check",
+        theme: "blue",
+        description:
+          "Pengurusan data, perancangan intervensi, bukti pelaksanaan, analisis impak, tindakan susulan dan pelaporan bagi program PLaN.",
+        prefix: "plan",
+      },
+      {
+        id: "PiT",
+        label: "PiT",
+        badge: "Submenu 03",
+        icon: "target",
+        theme: "amber",
+        description:
+          "Pengurusan data, perancangan intervensi, bukti pelaksanaan, analisis impak, tindakan susulan dan pelaporan bagi program PiT.",
+        prefix: "pit",
+      },
+      {
+        id: "ARIF",
+        label: "ARIF",
+        badge: "Submenu 04",
+        icon: "sparkles",
+        theme: "purple",
+        description:
+          "Pengurusan data, perancangan intervensi, bukti pelaksanaan, analisis impak, tindakan susulan dan pelaporan bagi program ARIF.",
+        prefix: "arif",
+      },
+    ];
+
+    const activeProg =
+      programs.find((p) => p.id === selectedProgram) || programs[0];
+
+    const programTabsHtml = programs
+      .map((prog) => {
+        const isActive = prog.id === activeProg.id;
+        return `
+          <button
+            type="button"
+            data-intervensi-tab="${UI.escapeHtml(prog.id)}"
+            class="px-5 py-3 rounded-xl text-xs sm:text-sm font-black border-2 transition cursor-pointer flex items-center gap-2.5 ${
+              isActive
+                ? "bg-[#081C52] text-[#FFC43D] border-[#081C52] shadow-md"
+                : "bg-white hover:bg-blue-50 text-[#112455] border-slate-200"
+            }"
+          >
+            <i data-lucide="${prog.icon}" class="w-4 h-4"></i>
+            <span>${UI.escapeHtml(prog.label)}</span>
+            <span class="px-2 py-0.5 rounded-full text-[10px] font-extrabold ${
+              isActive ? "bg-[#FFC43D] text-[#081C52]" : "bg-slate-100 text-slate-600"
+            }">8 Ruang</span>
+          </button>
+        `;
+      })
+      .join("");
+
+    const buildProgramSections = (prog) => {
+      const pfx = prog.prefix;
+      return [
+        {
+          num: "01",
+          title: "Data dan Analisis",
+          subtitle: `Program ${prog.label}`,
+          desc: `Pengumpulan data saringan/penguasaan dan analisis keperluan murid bagi program ${prog.label}.`,
+          url: dashboardLinks[`${pfx}DataAnalisisUrl`],
+          key: `${pfx}DataAnalisisUrl`,
+          icon: "bar-chart-3",
+          theme: "blue",
+        },
+        {
+          num: "02",
+          title: "Perancangan Intervensi",
+          subtitle: `Program ${prog.label}`,
+          desc: `Pelan tindakan, jadual kerja, strategi bimbingan berfokus dan sasaran pencapaian ${prog.label}.`,
+          url: dashboardLinks[`${pfx}PerancanganUrl`],
+          key: `${pfx}PerancanganUrl`,
+          icon: "compass",
+          theme: "cyan",
+        },
+        {
+          num: "03",
+          title: "Bukti Pelaksanaan",
+          subtitle: `Program ${prog.label}`,
+          desc: `Koleksi evidens pelaksanaan, bahan bantu belajar, lembaran kerja dan rekod kehadiran sesi ${prog.label}.`,
+          url: dashboardLinks[`${pfx}BuktiPelaksanaanUrl`],
+          key: `${pfx}BuktiPelaksanaanUrl`,
+          icon: "folder-check",
+          theme: "emerald",
+        },
+        {
+          num: "04",
+          title: "Analisis Impak",
+          subtitle: `Program ${prog.label}`,
+          desc: `Penilaian keberkesanan intervensi dan perbandingan pencapaian murid sebelum serta selepas pelaksanaan ${prog.label}.`,
+          url: dashboardLinks[`${pfx}AnalisisImpakUrl`],
+          key: `${pfx}AnalisisImpakUrl`,
+          icon: "trending-up",
+          theme: "amber",
+        },
+        {
+          num: "05",
+          title: "Tindakan Susulan",
+          subtitle: `Program ${prog.label}`,
+          desc: `Cadangan penambahbaikan berterusan, penyelarasan semula strategi dan intervensi lanjutan bagi ${prog.label}.`,
+          url: dashboardLinks[`${pfx}TindakanSusulanUrl`],
+          key: `${pfx}TindakanSusulanUrl`,
+          icon: "refresh-cw",
+          theme: "purple",
+        },
+        {
+          num: "06",
+          title: "Laporan",
+          subtitle: `Program ${prog.label}`,
+          desc: `Pelaporan lengkap pelaksanaan dan rumusan pencapaian program ${prog.label} untuk rujukan sekolah.`,
+          url: dashboardLinks[`${pfx}LaporanUrl`],
+          key: `${pfx}LaporanUrl`,
+          icon: "file-spreadsheet",
+          theme: "teal",
+        },
+        {
+          num: "07",
+          title: `One Page Report (OPR) ${prog.label}`,
+          subtitle: `Laporan Ringkas Satu Muka Surat`,
+          desc: `Koleksi One Page Report (OPR) aktiviti dan pelaksanaan program ${prog.label} SK Taman Permas Jaya 3.`,
+          url: dashboardLinks[`${pfx}OprUrl`],
+          key: `${pfx}OprUrl`,
+          icon: "file-text",
+          theme: "rose",
+        },
+        {
+          num: "08",
+          title: `Storyboard ${prog.label}`,
+          subtitle: `Dokumentasi Visual Program`,
+          desc: `Paparan visual storyboard perjalanan pelaksanaan dan impak program ${prog.label}.`,
+          url: dashboardLinks[`${pfx}StoryboardUrl`],
+          key: `${pfx}StoryboardUrl`,
+          icon: "layout-panel-top",
+          theme: "indigo",
+        },
+      ];
+    };
+
+    const activeSections = buildProgramSections(activeProg);
+
+    return `
+      ${UI.renderPageHeader({
+        badge: "Modul 07 • Intervensi & Peningkatan",
+        title: "Intervensi dan Peningkatan Pembelajaran",
+        subtitle:
+          "Pusat pengurusan bersepadu bagi empat program utama peningkatan pembelajaran sekolah: Pemulihan, PLaN, PiT dan ARIF.",
+        icon: "trending-up",
+      })}
+
+      <!-- Pautan Silang ke Intervensi Prasekolah (Tanpa Menggandakan Dokumen) -->
+      <div class="mb-8 p-5 rounded-2xl bg-cyan-50 border-l-4 border-cyan-600 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div class="flex items-start gap-3.5">
+          <i data-lucide="link-2" class="w-5 h-5 text-cyan-700 shrink-0 mt-0.5"></i>
+          <div class="text-xs sm:text-sm text-[#112455] leading-relaxed">
+            <strong class="font-extrabold">Pautan Silang Intervensi Prasekolah:</strong>
+            Pengurusan dan dokumentasi <strong>Intervensi dan Sokongan Pembelajaran Prasekolah</strong> dikekalkan di bawah menu <em>Analisis dan Pelaporan Prasekolah</em> bagi mengelakkan pertindihan dokumen.
+          </div>
+        </div>
+        <a
+          href="#/prasekolah"
+          class="shrink-0 inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white hover:bg-cyan-100 text-cyan-900 border border-cyan-300 text-xs font-extrabold shadow-xs transition"
+        >
+          <i data-lucide="blocks" class="w-4 h-4 text-cyan-700"></i>
+          <span>Buka Intervensi Prasekolah</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
+      <!-- Pemilih 4 Submenu Program (Pemulihan, PLaN, PiT, ARIF) -->
+      <div class="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-xs mb-8">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-4">
+          <div>
+            <span class="text-xs font-extrabold uppercase tracking-wider text-[#174EA6] flex items-center gap-1.5">
+              <i data-lucide="layers" class="w-4 h-4"></i>
+              <span>4 Submenu Program Intervensi & Peningkatan Pembelajaran</span>
+            </span>
+            <p class="text-xs text-[#5A688C] mt-0.5">
+              Pilih submenu program di bawah (<strong>Pemulihan</strong>, <strong>PLaN</strong>, <strong>PiT</strong> atau <strong>ARIF</strong>) untuk mengakses 6 bahagian pengurusan serta OPR dan Storyboard.
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2.5">
+            ${programTabsHtml}
+          </div>
+        </div>
+
+        <!-- Ringkasan 4 Program secara serentak -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 pt-4 border-t border-slate-100">
+          ${programs
+            .map((p) => {
+              const isSelected = p.id === activeProg.id;
+              return `
+                <button
+                  type="button"
+                  data-intervensi-tab="${UI.escapeHtml(p.id)}"
+                  class="text-left p-3.5 rounded-xl border transition cursor-pointer ${
+                    isSelected
+                      ? "bg-blue-50/90 border-[#174EA6] shadow-xs"
+                      : "bg-slate-50/70 hover:bg-slate-100 border-slate-200"
+                  }"
+                >
+                  <div class="flex items-center justify-between gap-2 mb-1">
+                    <span class="text-[10px] font-black uppercase px-2 py-0.5 rounded ${
+                      isSelected ? "bg-[#081C52] text-[#FFC43D]" : "bg-slate-200 text-slate-700"
+                    }">${UI.escapeHtml(p.badge)}</span>
+                    ${
+                      isSelected
+                        ? `<span class="text-[10px] font-extrabold text-[#174EA6]">Sedang Dipaparkan</span>`
+                        : `<span class="text-[10px] font-semibold text-slate-500">Klik untuk buka</span>`
+                    }
+                  </div>
+                  <h3 class="text-sm font-black text-[#112455]">${UI.escapeHtml(p.label)}</h3>
+                  <p class="text-[11px] text-[#5A688C] mt-0.5 line-clamp-2">${UI.escapeHtml(p.description)}</p>
+                </button>
+              `;
+            })
+            .join("")}
+        </div>
+      </div>
+
+      <!-- Tajuk Program Aktif & Grid 6 Bahagian + OPR + Storyboard -->
+      <div class="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-gradient-to-r from-[#081C52] to-[#174EA6] text-white p-5 sm:p-6 rounded-2xl border-l-4 border-[#FFC43D] shadow-sm">
+        <div>
+          <span class="px-2.5 py-0.5 rounded bg-[#FFC43D] text-[#081C52] text-[11px] font-black uppercase">
+            ${UI.escapeHtml(activeProg.badge)} • Program Aktif
+          </span>
+          <h2 class="text-xl sm:text-2xl font-black mt-1.5">
+            Program ${UI.escapeHtml(activeProg.label)}
+          </h2>
+          <p class="text-xs sm:text-sm text-blue-100 mt-0.5">
+            ${UI.escapeHtml(activeProg.description)}
+          </p>
+        </div>
+        <div class="shrink-0">
+          <span class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white/15 border border-white/20 text-xs font-extrabold text-amber-200">
+            <i data-lucide="folder-git-2" class="w-4 h-4"></i>
+            <span>6 Bahagian Wajib + OPR & Storyboard</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+        ${activeSections
+          .map((sec) => {
+            const t = UI.getTheme(sec.theme);
+            return `
+              <section class="bg-white rounded-2xl p-6 border-2 ${t.border} shadow-sm flex flex-col justify-between gap-5">
+                <div>
+                  <div class="flex items-center justify-between gap-2 mb-3">
+                    <span class="px-3 py-1 rounded-lg text-xs font-black ${t.badge}">${sec.num}</span>
+                    <div class="w-10 h-10 rounded-xl ${t.iconBox} border flex items-center justify-center">
+                      <i data-lucide="${sec.icon}" class="w-5 h-5"></i>
+                    </div>
+                  </div>
+                  <h3 class="text-base sm:text-lg font-black text-[#112455] uppercase">${UI.escapeHtml(sec.title)}</h3>
+                  <p class="text-xs font-bold text-[#174EA6] mt-0.5">${UI.escapeHtml(sec.subtitle)}</p>
+                  <p class="text-xs text-[#5A688C] mt-2 leading-relaxed">${UI.escapeHtml(sec.desc)}</p>
+                </div>
+
+                <div class="pt-3 border-t border-slate-100">
+                  ${UI.renderExternalActionButton({
+                    url: sec.url,
+                    label: `Buka ${sec.title} (${activeProg.label})`,
+                    emptyLabel: "Pautan belum ditetapkan",
+                    configKeyHint: sec.key,
+                    size: "md",
+                  })}
+                </div>
+              </section>
+            `;
+          })
+          .join("")}
+      </div>
+    `;
+  }
+
+  /**
+   * 15. HALAMAN 404 — HALAMAN TIDAK DITEMUI
    */
   function renderNotFoundPage(unknownRoute) {
     return `
@@ -1939,6 +2579,8 @@ window.PBS_PAGES = (function () {
     renderMatriksPage,
     renderPpsiPage,
     renderSegakBmiPage,
+    renderPrasekolahPage,
+    renderIntervensiPage,
     renderTakwimPage,
     renderPenjaminanMutuPage,
     renderPusatRujukanPage,
